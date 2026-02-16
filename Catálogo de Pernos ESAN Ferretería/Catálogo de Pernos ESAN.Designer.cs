@@ -39,11 +39,13 @@
             txtBuscar = new TextBox();
             label3 = new Label();
             dgvHistorial = new DataGridView();
-            label5 = new Label();
-            LBResultados = new ListBox();
             milimetro = new DataGridViewTextBoxColumn();
             paso = new DataGridViewTextBoxColumn();
             pulgada = new DataGridViewTextBoxColumn();
+            buscado = new DataGridViewTextBoxColumn();
+            label5 = new Label();
+            LBResultados = new ListBox();
+            btnLimpiarHistorial = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             SuspendLayout();
             // 
@@ -134,30 +136,12 @@
             // dgvHistorial
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHistorial.Columns.AddRange(new DataGridViewColumn[] { milimetro, paso, pulgada });
+            dgvHistorial.Columns.AddRange(new DataGridViewColumn[] { milimetro, paso, pulgada, buscado });
             dgvHistorial.Location = new Point(457, 138);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
-            dgvHistorial.Size = new Size(428, 193);
+            dgvHistorial.Size = new Size(554, 193);
             dgvHistorial.TabIndex = 12;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(457, 110);
-            label5.Name = "label5";
-            label5.Size = new Size(119, 20);
-            label5.TabIndex = 13;
-            label5.Text = "Lo más buscado:";
-            // 
-            // LBResultados
-            // 
-            LBResultados.FormattingEnabled = true;
-            LBResultados.Location = new Point(102, 171);
-            LBResultados.Name = "LBResultados";
-            LBResultados.Size = new Size(324, 104);
-            LBResultados.TabIndex = 14;
-            LBResultados.DoubleClick += LBResultados_DoubleClick;
             // 
             // milimetro
             // 
@@ -180,11 +164,47 @@
             pulgada.Name = "pulgada";
             pulgada.Width = 125;
             // 
+            // buscado
+            // 
+            buscado.HeaderText = "Veces buscado";
+            buscado.MinimumWidth = 6;
+            buscado.Name = "buscado";
+            buscado.Width = 125;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(457, 110);
+            label5.Name = "label5";
+            label5.Size = new Size(119, 20);
+            label5.TabIndex = 13;
+            label5.Text = "Lo más buscado:";
+            // 
+            // LBResultados
+            // 
+            LBResultados.FormattingEnabled = true;
+            LBResultados.Location = new Point(102, 171);
+            LBResultados.Name = "LBResultados";
+            LBResultados.Size = new Size(324, 104);
+            LBResultados.TabIndex = 14;
+            LBResultados.DoubleClick += LBResultados_DoubleClick;
+            // 
+            // btnLimpiarHistorial
+            // 
+            btnLimpiarHistorial.Location = new Point(865, 106);
+            btnLimpiarHistorial.Name = "btnLimpiarHistorial";
+            btnLimpiarHistorial.Size = new Size(146, 29);
+            btnLimpiarHistorial.TabIndex = 15;
+            btnLimpiarHistorial.Text = "Limpiar historial";
+            btnLimpiarHistorial.UseVisualStyleBackColor = true;
+            btnLimpiarHistorial.Click += btnLimpiarHistorial_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 467);
+            Controls.Add(btnLimpiarHistorial);
             Controls.Add(LBResultados);
             Controls.Add(label5);
             Controls.Add(dgvHistorial);
@@ -221,5 +241,7 @@
         private DataGridViewTextBoxColumn milimetro;
         private DataGridViewTextBoxColumn paso;
         private DataGridViewTextBoxColumn pulgada;
+        private DataGridViewTextBoxColumn buscado;
+        private Button btnLimpiarHistorial;
     }
 }

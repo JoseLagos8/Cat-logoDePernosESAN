@@ -1,5 +1,9 @@
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
+using System.Xml;
+using System.IO;
+using Newtonsoft.Json;
+using System.Data;
 
 namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
@@ -15,6 +19,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
 
         List<Perno> pernos = new List<Perno>();
+        Dictionary<string, int> contadorBusquedas = new Dictionary<string, int>();
 
         public Form1()
         {
@@ -36,12 +41,15 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             this.Location = new Point(x, y);
 
             CargarPernos();
+            CargarHistorial();
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            GuardarHistorial();
             e.Cancel = true;
             this.WindowState = FormWindowState.Minimized;
         }
+
 
         private void btnM6_Click(object sender, EventArgs e)
         {
@@ -111,14 +119,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             LBResultados.DisplayMember = "Descripcion";
             LBResultados.Visible = resultados.Count > 0;
         }
-        private void LBResultados_DoubleClick(object sender, EventArgs e)
-        {
-            if (LBResultados.SelectedItem is Perno perno)
-            {
-                AbrirForm(perno.FormDestino);
-                AgregarAlHistorial(perno);
-            }
-        }
+
         private void AbrirForm(string formDestino)
         {
             Form form = null;
@@ -143,15 +144,100 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                 this.Show();
             }
         }
-        
+
         private void AgregarAlHistorial(Perno p)
         {
-            dgvHistorial.Rows.Add(
-                p.Milimetro,
-                p.Paso,
-                p.Pulgada,
-                DateTime.Now.ToString("dd/MM/yyyy HH:mm")
-            );
+            string clave = $"{p.Milimetro}-{p.Paso}";
+
+            if (contadorBusquedas.ContainsKey(clave))
+                contadorBusquedas[clave]++;
+            else
+                contadorBusquedas[clave] = 1;
+
+            ActualizarGrid();
+        }
+
+        private void LBResultados_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (LBResultados.SelectedItem is Perno pernoSeleccionado)
+            {
+                txtBuscar.Clear();
+                LBResultados.Visible = false;
+
+                AbrirForm(pernoSeleccionado.FormDestino);
+                AgregarAlHistorial(pernoSeleccionado);
+                txtBuscar.Clear();
+                LBResultados.Visible = false;
+
+            }
+        }
+
+        private void ActualizarGrid()
+        {
+            dgvHistorial.Rows.Clear();
+
+            var ordenado = contadorBusquedas
+                .OrderByDescending(x => x.Value);
+
+            foreach (var item in ordenado)
+            {
+                var datos = pernos.First(p => $"{p.Milimetro}-{p.Paso}" == item.Key);
+
+                dgvHistorial.Rows.Add(
+                    datos.Milimetro,
+                    datos.Paso,
+                    datos.Pulgada,
+                    item.Value
+                );
+            }
+        }
+
+        // HISTORIAL DE BÚSQUEDAS
+        public class HistorialItem
+        {
+            public string Codigo { get; set; }
+            public string Paso { get; set; }
+            public int Cantidad { get; set; }
+        }
+
+        private void GuardarHistorial()
+        {
+            var lista = contadorBusquedas.Select(x =>
+            {
+                var partes = x.Key.Split('-');
+                return new HistorialItem
+                {
+                    Codigo = partes[0],
+                    Paso = partes[1],
+                    Cantidad = x.Value
+                };
+            }).ToList();
+
+            string json = JsonConvert.SerializeObject(lista, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText("historial.json", json);
+        }
+
+        private void CargarHistorial()
+        {
+            if (!File.Exists("historial.json")) return;
+
+            string json = File.ReadAllText("historial.json");
+            var lista = JsonConvert.DeserializeObject<List<HistorialItem>>(json);
+
+            foreach (var item in lista)
+                contadorBusquedas[$"{item.Codigo}-{item.Paso}"] = item.Cantidad;
+
+            ActualizarGrid();
+        }
+
+        private void btnLimpiarHistorial_Click_1(object sender, EventArgs e)
+        {
+            contadorBusquedas.Clear();
+            dgvHistorial.Rows.Clear();
+
+            if (File.Exists("historial.json"))
+                File.Delete("historial.json");
         }
     }
 }
