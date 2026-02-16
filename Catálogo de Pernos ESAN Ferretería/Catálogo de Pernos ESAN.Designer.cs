@@ -36,8 +36,8 @@
             btmM8 = new Button();
             btnM10 = new Button();
             btnM12 = new Button();
+            textBox1 = new TextBox();
             label3 = new Label();
-            panel1 = new Panel();
             SuspendLayout();
             // 
             // label1
@@ -69,7 +69,7 @@
             // 
             // btnM6
             // 
-            btnM6.Location = new Point(85, 223);
+            btnM6.Location = new Point(157, 222);
             btnM6.Name = "btnM6";
             btnM6.Size = new Size(129, 48);
             btnM6.TabIndex = 6;
@@ -79,7 +79,7 @@
             // 
             // btmM8
             // 
-            btmM8.Location = new Point(239, 223);
+            btmM8.Location = new Point(311, 222);
             btmM8.Name = "btmM8";
             btmM8.Size = new Size(132, 48);
             btmM8.TabIndex = 7;
@@ -89,7 +89,7 @@
             // 
             // btnM10
             // 
-            btnM10.Location = new Point(389, 223);
+            btnM10.Location = new Point(461, 222);
             btnM10.Name = "btnM10";
             btnM10.Size = new Size(182, 48);
             btnM10.TabIndex = 8;
@@ -99,7 +99,7 @@
             // 
             // btnM12
             // 
-            btnM12.Location = new Point(85, 298);
+            btnM12.Location = new Point(157, 297);
             btnM12.Name = "btnM12";
             btnM12.Size = new Size(205, 48);
             btnM12.TabIndex = 9;
@@ -107,30 +107,29 @@
             btnM12.UseVisualStyleBackColor = true;
             btnM12.Click += btnM12_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(256, 114);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(324, 27);
+            textBox1.TabIndex = 10;
+            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(83, 111);
+            label3.Location = new Point(171, 117);
             label3.Name = "label3";
-            label3.Size = new Size(119, 20);
-            label3.TabIndex = 10;
-            label3.Text = "Lo más buscado:";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(128, 64, 64);
-            panel1.Location = new Point(85, 143);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(512, 39);
-            panel1.TabIndex = 11;
+            label3.Size = new Size(55, 20);
+            label3.TabIndex = 11;
+            label3.Text = "Buscar:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
             Controls.Add(label3);
+            Controls.Add(textBox1);
             Controls.Add(btnM12);
             Controls.Add(btnM10);
             Controls.Add(btmM8);
@@ -154,7 +153,7 @@
         private Button btmM8;
         private Button btnM10;
         private Button btnM12;
+        private TextBox textBox1;
         private Label label3;
-        private Panel panel1;
     }
 }
