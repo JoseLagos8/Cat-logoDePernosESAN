@@ -36,7 +36,7 @@
             largopulgadas = new DataGridViewTextBoxColumn();
             alternativa = new DataGridViewTextBoxColumn();
             diferencia = new DataGridViewTextBoxColumn();
-            dataGridView1 = new DataGridView();
+            dgvM1215 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label3 = new Label();
-            dataGridView2 = new DataGridView();
+            dgvM12175 = new DataGridView();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
@@ -52,8 +52,8 @@
             dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
             label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvM12).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM1215).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM12175).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
@@ -120,15 +120,15 @@
             diferencia.Name = "diferencia";
             diferencia.Width = 125;
             // 
-            // dataGridView1
+            // dgvM1215
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridView1.Location = new Point(799, 194);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(650, 188);
-            dataGridView1.TabIndex = 7;
+            dgvM1215.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvM1215.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dgvM1215.Location = new Point(799, 194);
+            dgvM1215.Name = "dgvM1215";
+            dgvM1215.RowHeadersWidth = 51;
+            dgvM1215.Size = new Size(650, 188);
+            dgvM1215.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -183,15 +183,15 @@
             label3.TabIndex = 9;
             label3.Text = "PERNO FINO";
             // 
-            // dataGridView2
+            // dgvM12175
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dataGridView2.Location = new Point(75, 497);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(650, 188);
-            dataGridView2.TabIndex = 10;
+            dgvM12175.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvM12175.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
+            dgvM12175.Location = new Point(75, 497);
+            dgvM12175.Name = "dgvM12175";
+            dgvM12175.RowHeadersWidth = 51;
+            dgvM12175.Size = new Size(650, 188);
+            dgvM12175.TabIndex = 10;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -243,10 +243,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1461, 741);
             Controls.Add(label4);
-            Controls.Add(dataGridView2);
+            Controls.Add(dgvM12175);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvM1215);
             Controls.Add(dgvM12);
             Controls.Add(label1);
             Controls.Add(btnVolver);
@@ -254,8 +254,8 @@
             Text = "m12";
             Load += m12_Load;
             ((System.ComponentModel.ISupportInitialize)dgvM12).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM1215).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM12175).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -270,7 +270,7 @@
         private DataGridViewTextBoxColumn largopulgadas;
         private DataGridViewTextBoxColumn alternativa;
         private DataGridViewTextBoxColumn diferencia;
-        private DataGridView dataGridView1;
+        private DataGridView dgvM1215;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -278,7 +278,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private Label label2;
         private Label label3;
-        private DataGridView dataGridView2;
+        private DataGridView dgvM12175;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;

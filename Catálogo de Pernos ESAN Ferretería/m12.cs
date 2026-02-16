@@ -46,6 +46,38 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     }
                 }
             }
+            string sql2 = "SELECT * FROM M12_15";
+
+            using (SqlConnection cnn = new SqlConnection(conexión))
+            {
+                cnn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql2, cnn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dgvM1215.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                        }
+                    }
+                }
+            }
+            string sql3 = "SELECT * FROM M12_175";
+
+            using (SqlConnection cnn = new SqlConnection(conexión))
+            {
+                cnn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql3, cnn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dgvM12175.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                        }
+                    }
+                }
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
