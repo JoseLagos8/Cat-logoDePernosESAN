@@ -139,7 +139,6 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Catálogo de Pernos ESAN";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
