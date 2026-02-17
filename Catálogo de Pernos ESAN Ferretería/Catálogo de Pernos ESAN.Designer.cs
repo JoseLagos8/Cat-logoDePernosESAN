@@ -46,14 +46,18 @@
             label5 = new Label();
             LBResultados = new ListBox();
             btnLimpiarHistorial = new Button();
+            menuStrip1 = new MenuStrip();
+            catálogosToolStripMenuItem = new ToolStripMenuItem();
+            tuercasToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(311, -1);
+            label1.Location = new Point(354, 24);
             label1.Name = "label1";
             label1.Size = new Size(391, 46);
             label1.TabIndex = 1;
@@ -63,7 +67,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(311, 45);
+            label2.Location = new Point(354, 70);
             label2.Name = "label2";
             label2.Size = new Size(375, 28);
             label2.TabIndex = 2;
@@ -73,7 +77,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(270, 73);
+            label4.Location = new Point(323, 98);
             label4.Name = "label4";
             label4.Size = new Size(454, 28);
             label4.TabIndex = 5;
@@ -125,7 +129,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(102, 160);
+            txtBuscar.Location = new Point(85, 158);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(324, 27);
             txtBuscar.TabIndex = 10;
@@ -135,7 +139,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(38, 165);
+            label3.Location = new Point(21, 163);
             label3.Name = "label3";
             label3.Size = new Size(61, 20);
             label3.TabIndex = 11;
@@ -145,7 +149,7 @@
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistorial.Columns.AddRange(new DataGridViewColumn[] { milimetro, paso, pulgada, buscado });
-            dgvHistorial.Location = new Point(457, 160);
+            dgvHistorial.Location = new Point(483, 191);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
             dgvHistorial.Size = new Size(554, 193);
@@ -184,7 +188,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(457, 132);
+            label5.Location = new Point(483, 163);
             label5.Name = "label5";
             label5.Size = new Size(125, 20);
             label5.TabIndex = 13;
@@ -194,7 +198,7 @@
             // 
             LBResultados.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBResultados.FormattingEnabled = true;
-            LBResultados.Location = new Point(102, 193);
+            LBResultados.Location = new Point(85, 191);
             LBResultados.Name = "LBResultados";
             LBResultados.Size = new Size(324, 104);
             LBResultados.TabIndex = 14;
@@ -203,7 +207,7 @@
             // btnLimpiarHistorial
             // 
             btnLimpiarHistorial.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiarHistorial.Location = new Point(865, 128);
+            btnLimpiarHistorial.Location = new Point(891, 159);
             btnLimpiarHistorial.Name = "btnLimpiarHistorial";
             btnLimpiarHistorial.Size = new Size(146, 29);
             btnLimpiarHistorial.TabIndex = 15;
@@ -211,11 +215,36 @@
             btnLimpiarHistorial.UseVisualStyleBackColor = true;
             btnLimpiarHistorial.Click += btnLimpiarHistorial_Click_1;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { catálogosToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1143, 33);
+            menuStrip1.TabIndex = 16;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // catálogosToolStripMenuItem
+            // 
+            catálogosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tuercasToolStripMenuItem });
+            catálogosToolStripMenuItem.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            catálogosToolStripMenuItem.Name = "catálogosToolStripMenuItem";
+            catálogosToolStripMenuItem.Size = new Size(110, 29);
+            catálogosToolStripMenuItem.Text = "Catálogos";
+            // 
+            // tuercasToolStripMenuItem
+            // 
+            tuercasToolStripMenuItem.Name = "tuercasToolStripMenuItem";
+            tuercasToolStripMenuItem.Size = new Size(163, 30);
+            tuercasToolStripMenuItem.Text = "Tuercas";
+            tuercasToolStripMenuItem.Click += tuercasToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1023, 467);
+            ClientSize = new Size(1143, 517);
             Controls.Add(btnLimpiarHistorial);
             Controls.Add(LBResultados);
             Controls.Add(label5);
@@ -229,10 +258,16 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,5 +290,8 @@
         private DataGridViewTextBoxColumn pulgada;
         private DataGridViewTextBoxColumn buscado;
         private Button btnLimpiarHistorial;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem catálogosToolStripMenuItem;
+        private ToolStripMenuItem tuercasToolStripMenuItem;
     }
 }
