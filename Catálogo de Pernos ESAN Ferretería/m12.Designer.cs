@@ -69,9 +69,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(605, 44);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(168, 31);
             label1.Name = "label1";
-            label1.Size = new Size(292, 20);
+            label1.Size = new Size(475, 31);
             label1.TabIndex = 5;
             label1.Text = "M12 en milimetros, pulgadas y alternativas";
             // 
@@ -79,7 +80,7 @@
             // 
             dgvM12.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM12.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
-            dgvM12.Location = new Point(75, 194);
+            dgvM12.Location = new Point(12, 118);
             dgvM12.Name = "dgvM12";
             dgvM12.RowHeadersWidth = 51;
             dgvM12.Size = new Size(650, 188);
@@ -124,7 +125,7 @@
             // 
             dgvM1215.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM1215.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dgvM1215.Location = new Point(799, 194);
+            dgvM1215.Location = new Point(12, 385);
             dgvM1215.Name = "dgvM1215";
             dgvM1215.RowHeadersWidth = 51;
             dgvM1215.Size = new Size(650, 188);
@@ -168,26 +169,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(302, 144);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 95);
             label2.Name = "label2";
-            label2.Size = new Size(188, 20);
+            label2.Size = new Size(248, 20);
             label2.TabIndex = 8;
-            label2.Text = "PERNO FINO AUTOMOTRIZ";
+            label2.Text = "PERNO FINO AUTOMOTRIZ (1.25)";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1121, 144);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 362);
             label3.Name = "label3";
-            label3.Size = new Size(93, 20);
+            label3.Size = new Size(137, 20);
             label3.TabIndex = 9;
-            label3.Text = "PERNO FINO";
+            label3.Text = "PERNO FINO (1.5)";
             // 
             // dgvM12175
             // 
             dgvM12175.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM12175.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dgvM12175.Location = new Point(75, 497);
+            dgvM12175.Location = new Point(12, 629);
             dgvM12175.Name = "dgvM12175";
             dgvM12175.RowHeadersWidth = 51;
             dgvM12175.Size = new Size(650, 188);
@@ -231,17 +234,18 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(293, 442);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(12, 606);
             label4.Name = "label4";
-            label4.Size = new Size(116, 20);
+            label4.Size = new Size(169, 20);
             label4.TabIndex = 11;
-            label4.Text = "PERNO GRUESO";
+            label4.Text = "PERNO GRUESO (1.75)";
             // 
             // m12
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1461, 741);
+            ClientSize = new Size(789, 841);
             Controls.Add(label4);
             Controls.Add(dgvM12175);
             Controls.Add(label3);
@@ -251,6 +255,7 @@
             Controls.Add(label1);
             Controls.Add(btnVolver);
             Name = "m12";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "m12";
             Load += m12_Load;
             ((System.ComponentModel.ISupportInitialize)dgvM12).EndInit();

@@ -21,6 +21,16 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         public m8()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.Manual;
+
+            int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
+            int y = 0;
+
+            this.Location = new Point(x, y);
+
+            dgvM8.ReadOnly = true;
+            dgvM8.AllowUserToAddRows = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

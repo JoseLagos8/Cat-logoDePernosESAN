@@ -53,9 +53,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(254, 68);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(205, 36);
             label1.Name = "label1";
-            label1.Size = new Size(284, 20);
+            label1.Size = new Size(462, 31);
             label1.TabIndex = 3;
             label1.Text = "M8 en milimetros, pulgadas y alternativas";
             // 
@@ -63,10 +64,10 @@
             // 
             dgvM8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM8.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
-            dgvM8.Location = new Point(75, 126);
+            dgvM8.Location = new Point(21, 127);
             dgvM8.Name = "dgvM8";
             dgvM8.RowHeadersWidth = 51;
-            dgvM8.Size = new Size(650, 188);
+            dgvM8.Size = new Size(767, 275);
             dgvM8.TabIndex = 4;
             // 
             // milimetros
@@ -107,9 +108,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(294, 88);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(281, 67);
             label2.Name = "label2";
-            label2.Size = new Size(188, 20);
+            label2.Size = new Size(268, 28);
             label2.TabIndex = 5;
             label2.Text = "PERNO FINO AUTOMOTRIZ";
             // 

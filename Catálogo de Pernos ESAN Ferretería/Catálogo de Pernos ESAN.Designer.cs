@@ -52,33 +52,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(406, 25);
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(311, -1);
             label1.Name = "label1";
-            label1.Size = new Size(164, 20);
+            label1.Size = new Size(391, 46);
             label1.TabIndex = 1;
-            label1.Text = "CATÁLOGO DE PERNOS";
+            label1.Text = "CATÁLOGO DE PERNOS\r\n";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(363, 45);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(311, 45);
             label2.Name = "label2";
-            label2.Size = new Size(266, 20);
+            label2.Size = new Size(375, 28);
             label2.TabIndex = 2;
             label2.Text = "BÚSQUEDA RÁPIDA Y EQUIVALENCIAS";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(333, 65);
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(270, 73);
             label4.Name = "label4";
-            label4.Size = new Size(322, 20);
+            label4.Size = new Size(454, 28);
             label4.TabIndex = 5;
             label4.Text = "LAS PULGADAS SON MEDIDAS APROXIMADAS";
             // 
             // btnM6
             // 
-            btnM6.Location = new Point(85, 379);
+            btnM6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnM6.Location = new Point(85, 401);
             btnM6.Name = "btnM6";
             btnM6.Size = new Size(129, 48);
             btnM6.TabIndex = 6;
@@ -88,7 +92,8 @@
             // 
             // btmM8
             // 
-            btmM8.Location = new Point(270, 379);
+            btmM8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btmM8.Location = new Point(270, 401);
             btmM8.Name = "btmM8";
             btmM8.Size = new Size(132, 48);
             btmM8.TabIndex = 7;
@@ -98,7 +103,8 @@
             // 
             // btnM10
             // 
-            btnM10.Location = new Point(457, 379);
+            btnM10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnM10.Location = new Point(457, 401);
             btnM10.Name = "btnM10";
             btnM10.Size = new Size(182, 48);
             btnM10.TabIndex = 8;
@@ -108,7 +114,8 @@
             // 
             // btnM12
             // 
-            btnM12.Location = new Point(700, 379);
+            btnM12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnM12.Location = new Point(700, 401);
             btnM12.Name = "btnM12";
             btnM12.Size = new Size(205, 48);
             btnM12.TabIndex = 9;
@@ -118,7 +125,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(102, 138);
+            txtBuscar.Location = new Point(102, 160);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(324, 27);
             txtBuscar.TabIndex = 10;
@@ -127,9 +134,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(38, 143);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(38, 165);
             label3.Name = "label3";
-            label3.Size = new Size(55, 20);
+            label3.Size = new Size(61, 20);
             label3.TabIndex = 11;
             label3.Text = "Buscar:";
             // 
@@ -137,11 +145,12 @@
             // 
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistorial.Columns.AddRange(new DataGridViewColumn[] { milimetro, paso, pulgada, buscado });
-            dgvHistorial.Location = new Point(457, 138);
+            dgvHistorial.Location = new Point(457, 160);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
             dgvHistorial.Size = new Size(554, 193);
             dgvHistorial.TabIndex = 12;
+            dgvHistorial.CellClick += dgvHistorial_CellClick;
             // 
             // milimetro
             // 
@@ -174,16 +183,18 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(457, 110);
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(457, 132);
             label5.Name = "label5";
-            label5.Size = new Size(119, 20);
+            label5.Size = new Size(125, 20);
             label5.TabIndex = 13;
             label5.Text = "Lo más buscado:";
             // 
             // LBResultados
             // 
+            LBResultados.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBResultados.FormattingEnabled = true;
-            LBResultados.Location = new Point(102, 171);
+            LBResultados.Location = new Point(102, 193);
             LBResultados.Name = "LBResultados";
             LBResultados.Size = new Size(324, 104);
             LBResultados.TabIndex = 14;
@@ -191,7 +202,8 @@
             // 
             // btnLimpiarHistorial
             // 
-            btnLimpiarHistorial.Location = new Point(865, 106);
+            btnLimpiarHistorial.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLimpiarHistorial.Location = new Point(865, 128);
             btnLimpiarHistorial.Name = "btnLimpiarHistorial";
             btnLimpiarHistorial.Size = new Size(146, 29);
             btnLimpiarHistorial.TabIndex = 15;

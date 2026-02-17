@@ -36,7 +36,7 @@
             largopulgadas = new DataGridViewTextBoxColumn();
             alternativa = new DataGridViewTextBoxColumn();
             diferencia = new DataGridViewTextBoxColumn();
-            dgv1015 = new DataGridView();
+            dgvM1015 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@
             label2 = new Label();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvM10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgv1015).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM1015).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
@@ -61,9 +61,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(538, 47);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(236, 22);
             label1.Name = "label1";
-            label1.Size = new Size(292, 20);
+            label1.Size = new Size(475, 31);
             label1.TabIndex = 4;
             label1.Text = "M10 en milimetros, pulgadas y alternativas";
             // 
@@ -71,10 +72,10 @@
             // 
             dgvM10.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM10.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
-            dgvM10.Location = new Point(12, 170);
+            dgvM10.Location = new Point(12, 110);
             dgvM10.Name = "dgvM10";
             dgvM10.RowHeadersWidth = 51;
-            dgvM10.Size = new Size(650, 188);
+            dgvM10.Size = new Size(877, 188);
             dgvM10.TabIndex = 5;
             // 
             // milimetros
@@ -112,15 +113,15 @@
             diferencia.Name = "diferencia";
             diferencia.Width = 125;
             // 
-            // dgv1015
+            // dgvM1015
             // 
-            dgv1015.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv1015.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dgv1015.Location = new Point(721, 170);
-            dgv1015.Name = "dgv1015";
-            dgv1015.RowHeadersWidth = 51;
-            dgv1015.Size = new Size(650, 188);
-            dgv1015.TabIndex = 6;
+            dgvM1015.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvM1015.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dgvM1015.Location = new Point(12, 392);
+            dgvM1015.Name = "dgvM1015";
+            dgvM1015.RowHeadersWidth = 51;
+            dgvM1015.Size = new Size(877, 188);
+            dgvM1015.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -160,37 +161,40 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(206, 118);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 87);
             label2.Name = "label2";
-            label2.Size = new Size(188, 20);
+            label2.Size = new Size(248, 20);
             label2.TabIndex = 7;
-            label2.Text = "PERNO FINO AUTOMOTRIZ";
+            label2.Text = "PERNO FINO AUTOMOTRIZ (1.25)";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(983, 118);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 369);
             label3.Name = "label3";
-            label3.Size = new Size(194, 20);
+            label3.Size = new Size(243, 20);
             label3.TabIndex = 8;
-            label3.Text = "PERNO GRUESO ESTÁNDAR";
+            label3.Text = "PERNO GRUESO ESTÁNDAR (1.5)";
             // 
             // m10
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1397, 526);
+            ClientSize = new Size(901, 735);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dgv1015);
+            Controls.Add(dgvM1015);
             Controls.Add(dgvM10);
             Controls.Add(label1);
             Controls.Add(btnVolver);
             Name = "m10";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "m10";
             Load += m10_Load;
             ((System.ComponentModel.ISupportInitialize)dgvM10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgv1015).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM1015).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,7 +208,7 @@
         private DataGridViewTextBoxColumn largopulgadas;
         private DataGridViewTextBoxColumn alternativa;
         private DataGridViewTextBoxColumn diferencia;
-        private DataGridView dgv1015;
+        private DataGridView dgvM1015;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

@@ -239,5 +239,25 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             if (File.Exists("historial.json"))
                 File.Delete("historial.json");
         }
+
+
+        private void dgvHistorial_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string milimetroSeleccionado = dgvHistorial.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                var pernoEncontrado = pernos.FirstOrDefault(p => p.Milimetro == milimetroSeleccionado);
+
+                if (pernoEncontrado != null)
+                {
+                    AbrirForm(pernoEncontrado.FormDestino);
+                }
+                else
+                {
+                    AbrirForm("Form" + milimetroSeleccionado);
+                }
+            }
+        }
     }
 }

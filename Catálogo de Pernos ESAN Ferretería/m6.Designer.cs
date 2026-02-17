@@ -36,7 +36,6 @@
             alternativa = new DataGridViewTextBoxColumn();
             diferencia = new DataGridViewTextBoxColumn();
             label1 = new Label();
-            btnMostrar = new Button();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvM6).BeginInit();
             SuspendLayout();
@@ -55,10 +54,10 @@
             // 
             dgvM6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM6.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
-            dgvM6.Location = new Point(79, 149);
+            dgvM6.Location = new Point(12, 118);
             dgvM6.Name = "dgvM6";
             dgvM6.RowHeadersWidth = 51;
-            dgvM6.Size = new Size(650, 188);
+            dgvM6.Size = new Size(776, 307);
             dgvM6.TabIndex = 1;
             // 
             // milimetros
@@ -99,27 +98,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(239, 51);
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(187, 27);
             label1.Name = "label1";
-            label1.Size = new Size(284, 20);
+            label1.Size = new Size(462, 31);
             label1.TabIndex = 2;
             label1.Text = "M6 en milimetros, pulgadas y alternativas";
-            // 
-            // btnMostrar
-            // 
-            btnMostrar.Location = new Point(79, 114);
-            btnMostrar.Name = "btnMostrar";
-            btnMostrar.Size = new Size(94, 29);
-            btnMostrar.TabIndex = 3;
-            btnMostrar.Text = "Mostrar";
-            btnMostrar.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(307, 71);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(311, 58);
             label2.Name = "label2";
-            label2.Size = new Size(109, 20);
+            label2.Size = new Size(154, 28);
             label2.TabIndex = 4;
             label2.Text = "PERNOS FINOS";
             // 
@@ -129,7 +121,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label2);
-            Controls.Add(btnMostrar);
             Controls.Add(label1);
             Controls.Add(dgvM6);
             Controls.Add(btnVolver);
@@ -146,7 +137,6 @@
         private Button btnVolver;
         private DataGridView dgvM6;
         private Label label1;
-        private Button btnMostrar;
         private DataGridViewTextBoxColumn milimetros;
         private DataGridViewTextBoxColumn diametropulgadas;
         private DataGridViewTextBoxColumn largopulgadas;

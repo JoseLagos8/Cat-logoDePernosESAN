@@ -21,6 +21,16 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         public m6()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.Manual;
+
+            int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
+            int y = 0;
+
+            this.Location = new Point(x, y);
+
+            dgvM6.ReadOnly = true;
+            dgvM6.AllowUserToAddRows = false;
         }
 
         private void m6_Load(object sender, EventArgs e)
@@ -55,22 +65,3 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         }
     }
 }
-
-/*
-    string sql = "SELECT * FROM M6_125";
-
-using (SqlConnection cnn = new SqlConnection(conexión))
-{
-        cnn.Open();
-        using (SqlCommand cmd = new SqlCommand(sql, cnn))
-        {
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    dgvM6.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
-                }
-            }
-        }
-}
-*/

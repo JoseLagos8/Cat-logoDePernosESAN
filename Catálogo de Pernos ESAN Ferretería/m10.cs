@@ -21,6 +21,19 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         public m10()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.Manual;
+
+            int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
+            int y = 0;
+
+            this.Location = new Point(x, y);
+
+            dgvM10.ReadOnly = true;
+            dgvM10.AllowUserToAddRows = false;
+
+            dgvM1015.ReadOnly = true;
+            dgvM1015.AllowUserToAddRows = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -56,7 +69,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     {
                         while (reader.Read())
                         {
-                            dgv1015.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                            dgvM1015.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
                         }
                     }
                 }
