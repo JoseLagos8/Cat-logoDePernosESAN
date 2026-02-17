@@ -124,6 +124,8 @@
             Controls.Add(label1);
             Controls.Add(dgvM6);
             Controls.Add(btnVolver);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "m6";
             Text = "m6";
             Load += m6_Load;

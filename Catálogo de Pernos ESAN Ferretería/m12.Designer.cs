@@ -254,6 +254,8 @@
             Controls.Add(dgvM12);
             Controls.Add(label1);
             Controls.Add(btnVolver);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "m12";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "m12";

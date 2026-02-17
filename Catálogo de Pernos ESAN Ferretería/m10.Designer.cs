@@ -189,6 +189,8 @@
             Controls.Add(dgvM10);
             Controls.Add(label1);
             Controls.Add(btnVolver);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "m10";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "m10";

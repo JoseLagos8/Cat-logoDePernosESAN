@@ -50,6 +50,21 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private const int WM_SYSCOMMAND = 0x0112;
+        private const int SC_MOVE = 0xF010;
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_SYSCOMMAND)
+            {
+                int command = m.WParam.ToInt32() & 0xfff0;
+                if (command == SC_MOVE)
+                {
+                    return;
+                }
+            }
+            base.WndProc(ref m);
+        }
 
         private void btnM6_Click(object sender, EventArgs e)
         {
@@ -269,22 +284,6 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             ventanaTuercas.FormClosed += (s, args) => this.Show();
 
             ventanaTuercas.Show();
-        }
-
-        private const int WM_SYSCOMMAND = 0x0112;
-        private const int SC_MOVE = 0xF010;
-
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == WM_SYSCOMMAND)
-            {
-                int command = m.WParam.ToInt32() & 0xfff0;
-                if (command == SC_MOVE)
-                {
-                    return;
-                }
-            }
-            base.WndProc(ref m);
         }
     }
 }

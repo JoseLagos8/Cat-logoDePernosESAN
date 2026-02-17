@@ -68,7 +68,7 @@
             // pernosToolStripMenuItem
             // 
             pernosToolStripMenuItem.Name = "pernosToolStripMenuItem";
-            pernosToolStripMenuItem.Size = new Size(224, 30);
+            pernosToolStripMenuItem.Size = new Size(155, 30);
             pernosToolStripMenuItem.Text = "Pernos";
             pernosToolStripMenuItem.Click += pernosToolStripMenuItem_Click;
             // 
@@ -89,7 +89,9 @@
             Controls.Add(dgvTuercas);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "Catálogo_de_Tuercas";
             Text = "Catálogo_de_Tuercas";
             Load += Catálogo_de_Tuercas_Load;

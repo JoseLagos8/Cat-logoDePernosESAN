@@ -124,6 +124,8 @@
             Controls.Add(dgvM8);
             Controls.Add(label1);
             Controls.Add(btnVolver);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "m8";
             Text = "m8";
             Load += m8_Load;
