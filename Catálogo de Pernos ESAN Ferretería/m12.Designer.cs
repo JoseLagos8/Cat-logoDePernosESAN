@@ -28,6 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m12));
             btnVolver = new Button();
             label1 = new Label();
             dgvM12 = new DataGridView();
@@ -58,9 +65,10 @@
             // 
             // btnVolver
             // 
+            btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnVolver.Location = new Point(12, 12);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 29);
+            btnVolver.Size = new Size(97, 38);
             btnVolver.TabIndex = 0;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -69,21 +77,38 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(168, 31);
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(156, 12);
             label1.Name = "label1";
-            label1.Size = new Size(475, 31);
+            label1.Size = new Size(584, 38);
             label1.TabIndex = 5;
             label1.Text = "M12 en milimetros, pulgadas y alternativas";
             // 
             // dgvM12
             // 
+            dgvM12.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvM12.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvM12.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM12.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
-            dgvM12.Location = new Point(12, 118);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvM12.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvM12.Location = new Point(1, 118);
             dgvM12.Name = "dgvM12";
             dgvM12.RowHeadersWidth = 51;
-            dgvM12.Size = new Size(650, 188);
+            dgvM12.Size = new Size(810, 216);
             dgvM12.TabIndex = 6;
             // 
             // milimetros
@@ -91,7 +116,7 @@
             milimetros.HeaderText = "Milimetros";
             milimetros.MinimumWidth = 6;
             milimetros.Name = "milimetros";
-            milimetros.Width = 125;
+            milimetros.Width = 200;
             // 
             // diametropulgadas
             // 
@@ -112,7 +137,7 @@
             alternativa.HeaderText = "Alternativa";
             alternativa.MinimumWidth = 6;
             alternativa.Name = "alternativa";
-            alternativa.Width = 125;
+            alternativa.Width = 150;
             // 
             // diferencia
             // 
@@ -123,12 +148,29 @@
             // 
             // dgvM1215
             // 
+            dgvM1215.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvM1215.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvM1215.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM1215.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dgvM1215.Location = new Point(12, 385);
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvM1215.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvM1215.Location = new Point(1, 385);
             dgvM1215.Name = "dgvM1215";
             dgvM1215.RowHeadersWidth = 51;
-            dgvM1215.Size = new Size(650, 188);
+            dgvM1215.Size = new Size(810, 237);
             dgvM1215.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
@@ -136,7 +178,7 @@
             dataGridViewTextBoxColumn1.HeaderText = "Milimetros";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 125;
+            dataGridViewTextBoxColumn1.Width = 200;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -157,7 +199,7 @@
             dataGridViewTextBoxColumn4.HeaderText = "Alternativa";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.Width = 125;
+            dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -169,31 +211,48 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 95);
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 84);
             label2.Name = "label2";
-            label2.Size = new Size(248, 20);
+            label2.Size = new Size(372, 31);
             label2.TabIndex = 8;
             label2.Text = "PERNO FINO AUTOMOTRIZ (1.25)";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 362);
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 351);
             label3.Name = "label3";
-            label3.Size = new Size(137, 20);
+            label3.Size = new Size(204, 31);
             label3.TabIndex = 9;
             label3.Text = "PERNO FINO (1.5)";
             // 
             // dgvM12175
             // 
+            dgvM12175.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvM12175.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvM12175.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvM12175.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dgvM12175.Location = new Point(12, 629);
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvM12175.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvM12175.Location = new Point(1, 687);
             dgvM12175.Name = "dgvM12175";
             dgvM12175.RowHeadersWidth = 51;
-            dgvM12175.Size = new Size(650, 188);
+            dgvM12175.Size = new Size(810, 232);
             dgvM12175.TabIndex = 10;
             // 
             // dataGridViewTextBoxColumn6
@@ -201,7 +260,7 @@
             dataGridViewTextBoxColumn6.HeaderText = "Milimetros";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.Width = 125;
+            dataGridViewTextBoxColumn6.Width = 200;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -222,7 +281,7 @@
             dataGridViewTextBoxColumn9.HeaderText = "Alternativa";
             dataGridViewTextBoxColumn9.MinimumWidth = 6;
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.Width = 125;
+            dataGridViewTextBoxColumn9.Width = 150;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -234,10 +293,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 606);
+            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(12, 653);
             label4.Name = "label4";
-            label4.Size = new Size(169, 20);
+            label4.Size = new Size(253, 31);
             label4.TabIndex = 11;
             label4.Text = "PERNO GRUESO (1.75)";
             // 
@@ -245,7 +304,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(789, 841);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(823, 920);
             Controls.Add(label4);
             Controls.Add(dgvM12175);
             Controls.Add(label3);
@@ -255,10 +315,11 @@
             Controls.Add(label1);
             Controls.Add(btnVolver);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "m12";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "m12";
+            Text = "Pernos M12 (1/2\")";
             Load += m12_Load;
             ((System.ComponentModel.ISupportInitialize)dgvM12).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvM1215).EndInit();
@@ -272,25 +333,25 @@
         private Button btnVolver;
         private Label label1;
         private DataGridView dgvM12;
+        private DataGridView dgvM1215;
+        private Label label2;
+        private Label label3;
+        private DataGridView dgvM12175;
+        private Label label4;
         private DataGridViewTextBoxColumn milimetros;
         private DataGridViewTextBoxColumn diametropulgadas;
         private DataGridViewTextBoxColumn largopulgadas;
         private DataGridViewTextBoxColumn alternativa;
         private DataGridViewTextBoxColumn diferencia;
-        private DataGridView dgvM1215;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private Label label2;
-        private Label label3;
-        private DataGridView dgvM12175;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private Label label4;
     }
 }

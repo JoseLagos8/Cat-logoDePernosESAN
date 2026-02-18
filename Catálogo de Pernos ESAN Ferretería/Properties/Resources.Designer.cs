@@ -63,9 +63,49 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1000021195 {
+            get {
+                object obj = ResourceManager.GetObject("1000021195", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap esan_ferreteria_chillan {
             get {
                 object obj = ResourceManager.GetObject("esan-ferreteria-chillan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_ceonp9ceonp9ceon {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_ceonp9ceonp9ceon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_zc26juzc26juzc26 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_zc26juzc26juzc26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imagen_4 {
+            get {
+                object obj = ResourceManager.GetObject("imagen-4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

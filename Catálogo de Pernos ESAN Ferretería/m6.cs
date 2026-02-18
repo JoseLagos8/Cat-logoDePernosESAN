@@ -53,11 +53,11 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             }
             base.WndProc(ref m);
         }
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void btnVolver_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
-    
+
         public void MostrarDatosM6()
         {
             string sql = "SELECT * FROM M6_125";

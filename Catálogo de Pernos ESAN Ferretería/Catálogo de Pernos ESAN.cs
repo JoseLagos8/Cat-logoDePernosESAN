@@ -43,6 +43,8 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             CargarPernos();
             CargarHistorial();
         }
+
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             GuardarHistorial();

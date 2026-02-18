@@ -49,15 +49,19 @@
             menuStrip1 = new MenuStrip();
             catálogosToolStripMenuItem = new ToolStripMenuItem();
             tuercasToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(354, 24);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(282, 72);
             label1.Name = "label1";
             label1.Size = new Size(391, 46);
             label1.TabIndex = 1;
@@ -66,8 +70,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(8, 33, 131);
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(354, 70);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(298, 137);
             label2.Name = "label2";
             label2.Size = new Size(375, 28);
             label2.TabIndex = 2;
@@ -76,8 +82,10 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(8, 33, 131);
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(323, 98);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(238, 165);
             label4.Name = "label4";
             label4.Size = new Size(454, 28);
             label4.TabIndex = 5;
@@ -86,9 +94,9 @@
             // btnM6
             // 
             btnM6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnM6.Location = new Point(85, 401);
+            btnM6.Location = new Point(16, 248);
             btnM6.Name = "btnM6";
-            btnM6.Size = new Size(129, 48);
+            btnM6.Size = new Size(136, 48);
             btnM6.TabIndex = 6;
             btnM6.Text = "M6 - 1.25 (1/4\")";
             btnM6.UseVisualStyleBackColor = true;
@@ -97,9 +105,9 @@
             // btmM8
             // 
             btmM8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btmM8.Location = new Point(270, 401);
+            btmM8.Location = new Point(171, 248);
             btmM8.Name = "btmM8";
-            btmM8.Size = new Size(132, 48);
+            btmM8.Size = new Size(131, 48);
             btmM8.TabIndex = 7;
             btmM8.Text = "M8 - 1.25 (5/16\")";
             btmM8.UseVisualStyleBackColor = true;
@@ -108,9 +116,9 @@
             // btnM10
             // 
             btnM10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnM10.Location = new Point(457, 401);
+            btnM10.Location = new Point(308, 248);
             btnM10.Name = "btnM10";
-            btnM10.Size = new Size(182, 48);
+            btnM10.Size = new Size(158, 48);
             btnM10.TabIndex = 8;
             btnM10.Text = "M10 - 1.25 y 1.5 (3/8\")";
             btnM10.UseVisualStyleBackColor = true;
@@ -119,9 +127,9 @@
             // btnM12
             // 
             btnM12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnM12.Location = new Point(700, 401);
+            btnM12.Location = new Point(485, 248);
             btnM12.Name = "btnM12";
-            btnM12.Size = new Size(205, 48);
+            btnM12.Size = new Size(229, 48);
             btnM12.TabIndex = 9;
             btnM12.Text = "M12 - 1.25, 1.5 y 1.75 (1/2\")";
             btnM12.UseVisualStyleBackColor = true;
@@ -129,7 +137,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(85, 158);
+            txtBuscar.Location = new Point(238, 325);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(324, 27);
             txtBuscar.TabIndex = 10;
@@ -139,7 +147,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(21, 163);
+            label3.Location = new Point(171, 328);
             label3.Name = "label3";
             label3.Size = new Size(61, 20);
             label3.TabIndex = 11;
@@ -147,9 +155,10 @@
             // 
             // dgvHistorial
             // 
+            dgvHistorial.BackgroundColor = SystemColors.ButtonFace;
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistorial.Columns.AddRange(new DataGridViewColumn[] { milimetro, paso, pulgada, buscado });
-            dgvHistorial.Location = new Point(483, 191);
+            dgvHistorial.Location = new Point(138, 500);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
             dgvHistorial.Size = new Size(554, 193);
@@ -188,7 +197,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(483, 163);
+            label5.Location = new Point(7, 500);
             label5.Name = "label5";
             label5.Size = new Size(125, 20);
             label5.TabIndex = 13;
@@ -198,7 +207,7 @@
             // 
             LBResultados.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBResultados.FormattingEnabled = true;
-            LBResultados.Location = new Point(85, 191);
+            LBResultados.Location = new Point(238, 358);
             LBResultados.Name = "LBResultados";
             LBResultados.Size = new Size(324, 104);
             LBResultados.TabIndex = 14;
@@ -207,7 +216,7 @@
             // btnLimpiarHistorial
             // 
             btnLimpiarHistorial.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiarHistorial.Location = new Point(891, 159);
+            btnLimpiarHistorial.Location = new Point(546, 699);
             btnLimpiarHistorial.Name = "btnLimpiarHistorial";
             btnLimpiarHistorial.Size = new Size(146, 29);
             btnLimpiarHistorial.TabIndex = 15;
@@ -217,11 +226,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.White;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { catálogosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1143, 33);
+            menuStrip1.Size = new Size(726, 33);
             menuStrip1.TabIndex = 16;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -240,34 +250,48 @@
             tuercasToolStripMenuItem.Text = "Tuercas";
             tuercasToolStripMenuItem.Click += tuercasToolStripMenuItem_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources._1000021195;
+            pictureBox1.Location = new Point(-38, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(764, 204);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 517);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(726, 762);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnM12);
+            Controls.Add(btnM10);
+            Controls.Add(btmM8);
+            Controls.Add(btnM6);
             Controls.Add(btnLimpiarHistorial);
             Controls.Add(LBResultados);
             Controls.Add(label5);
             Controls.Add(dgvHistorial);
             Controls.Add(label3);
             Controls.Add(txtBuscar);
-            Controls.Add(btnM12);
-            Controls.Add(btnM10);
-            Controls.Add(btmM8);
-            Controls.Add(btnM6);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "Form1";
+            Text = "Catálogo de Pernos";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,5 +317,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem catálogosToolStripMenuItem;
         private ToolStripMenuItem tuercasToolStripMenuItem;
+        private PictureBox pictureBox1;
     }
 }
