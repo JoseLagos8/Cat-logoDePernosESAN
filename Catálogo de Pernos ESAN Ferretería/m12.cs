@@ -14,10 +14,17 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
     public partial class m12 : Form
     {
         string conexión = @"Server=JOLALA\SQLEXPRESS;
-                        Database=PERNOS_ESAN;
+                        Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
+        Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
+    {
+        { "M12 1.25", "M12" },
+        { "M12 1.5", "M12_15" },
+        { "M12 1.75", "M12_175" }
+    };
+
         public m12()
         {
             InitializeComponent();
@@ -31,12 +38,6 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
             dgvM12.ReadOnly = true;
             dgvM12.AllowUserToAddRows = false;
-
-            dgvM1215.ReadOnly = true;
-            dgvM1215.AllowUserToAddRows = false;
-
-            dgvM12175.ReadOnly = true;
-            dgvM12175.AllowUserToAddRows = false;
         }
 
         private const int WM_SYSCOMMAND = 0x0112;
@@ -58,10 +59,15 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         private void m12_Load(object sender, EventArgs e)
         {
             MostrarDatosM12();
+            cmbM12.Items.Add("M12 1.25");
+            cmbM12.Items.Add("M12 1.5");
+            cmbM12.Items.Add("M12 1.75");
+
+            cmbM12.SelectedIndex = 0;
         }
         public void MostrarDatosM12()
         {
-            string sql = "SELECT * FROM M12_125";
+            string sql = "SELECT * FROM m12";
 
             using (SqlConnection cnn = new SqlConnection(conexión))
             {
@@ -72,48 +78,68 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     {
                         while (reader.Read())
                         {
-                            dgvM12.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                            dgvM12.Rows.Add(reader[0], reader[1], reader[2]);
                         }
                     }
                 }
             }
-            string sql2 = "SELECT * FROM M12_15";
+        }
+        public void MostrarDatosM10()
+        {
+            string sql = "SELECT * FROM m12";
 
             using (SqlConnection cnn = new SqlConnection(conexión))
             {
                 cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql2, cnn))
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            dgvM1215.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                            dgvM12.Rows.Add(reader[0], reader[1], reader[2]);
                         }
                     }
                 }
             }
-            string sql3 = "SELECT * FROM M12_175";
-
-            using (SqlConnection cnn = new SqlConnection(conexión))
+        }
+        private void CargarDatos(string tabla)
+        {
+            try
             {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql3, cnn))
+                using (SqlConnection conexion = new SqlConnection(conexión))
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dgvM12175.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
-                        }
-                    }
+                    string query = $"SELECT Milimetros, Largo12, DiametroEnPulgadas FROM {tabla}";
+
+                    SqlDataAdapter adaptador = new SqlDataAdapter(query, conexion);
+                    DataTable dt = new DataTable();
+
+                    conexion.Open();
+                    adaptador.Fill(dt);
+
+                    dgvM12.DataSource = null;
+                    dgvM12.DataSource = dt;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbM12_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = cmbM12.SelectedItem.ToString();
+
+            if (mapaTablas.ContainsKey(seleccion))
+            {
+                CargarDatos(mapaTablas[seleccion]);
+            }
         }
     }
 }

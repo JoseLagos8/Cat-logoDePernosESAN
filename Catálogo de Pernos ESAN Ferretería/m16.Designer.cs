@@ -1,6 +1,6 @@
 ﻿namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
-    partial class m6
+    partial class m16
     {
         /// <summary>
         /// Required designer variable.
@@ -30,20 +30,26 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m6));
+            pictureBox1 = new PictureBox();
             label1 = new Label();
-            label2 = new Label();
-            btnVolver = new Button();
-            dgvM6 = new DataGridView();
+            dgvM16 = new DataGridView();
             milimetro = new DataGridViewTextBoxColumn();
             largoperno = new DataGridViewTextBoxColumn();
             diametropulgada = new DataGridViewTextBoxColumn();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dgvM6).BeginInit();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM16).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources._1000021195;
+            pictureBox1.Location = new Point(-7, -6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -51,38 +57,15 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(335, 60);
+            label1.Location = new Point(310, 50);
             label1.Name = "label1";
-            label1.Size = new Size(387, 38);
-            label1.TabIndex = 2;
-            label1.Text = "M6 en milimetros y pulgada\r\n";
+            label1.Size = new Size(344, 114);
+            label1.TabIndex = 22;
+            label1.Text = "M16\r\n en milimetros y pulgada\r\n\r\n";
             // 
-            // label2
+            // dgvM16
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(8, 33, 131);
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(441, 98);
-            label2.Name = "label2";
-            label2.Size = new Size(217, 38);
-            label2.TabIndex = 4;
-            label2.Text = "PERNOS FINOS";
-            // 
-            // btnVolver
-            // 
-            btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
-            btnVolver.TabIndex = 5;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
-            btnVolver.Click += btnVolver_Click_1;
-            // 
-            // dgvM6
-            // 
-            dgvM6.BackgroundColor = SystemColors.ButtonFace;
+            dgvM16.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -90,9 +73,9 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvM6.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvM6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvM6.Columns.AddRange(new DataGridViewColumn[] { milimetro, largoperno, diametropulgada });
+            dgvM16.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvM16.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvM16.Columns.AddRange(new DataGridViewColumn[] { milimetro, largoperno, diametropulgada });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -100,12 +83,12 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvM6.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM6.Location = new Point(227, 217);
-            dgvM6.Name = "dgvM6";
-            dgvM6.RowHeadersWidth = 51;
-            dgvM6.Size = new Size(585, 612);
-            dgvM6.TabIndex = 6;
+            dgvM16.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvM16.Location = new Point(110, 220);
+            dgvM16.Name = "dgvM16";
+            dgvM16.RowHeadersWidth = 51;
+            dgvM16.Size = new Size(585, 612);
+            dgvM16.TabIndex = 23;
             // 
             // milimetro
             // 
@@ -128,60 +111,44 @@
             diametropulgada.Name = "diametropulgada";
             diametropulgada.Width = 280;
             // 
-            // pictureBox1
+            // btnVolver
             // 
-            pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(0, -3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 19;
-            pictureBox1.TabStop = false;
+            btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVolver.Location = new Point(12, 12);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(94, 38);
+            btnVolver.TabIndex = 24;
+            btnVolver.Text = "Volver";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources._1000021195;
-            pictureBox2.Location = new Point(112, -3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(885, 204);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 20;
-            pictureBox2.TabStop = false;
-            // 
-            // m6
+            // m16
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(962, 841);
-            Controls.Add(dgvM6);
+            ClientSize = new Size(800, 835);
             Controls.Add(btnVolver);
-            Controls.Add(label2);
+            Controls.Add(dgvM16);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            Name = "m6";
-            Text = "Pernos M6 (1/4\")";
-            Load += m6_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvM6).EndInit();
+            Name = "m16";
+            Text = "m16";
+            Load += m16_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvM16).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
         private Label label1;
-        private Label label2;
-        private Button btnVolver;
-        private DataGridView dgvM6;
+        private DataGridView dgvM16;
         private DataGridViewTextBoxColumn milimetro;
         private DataGridViewTextBoxColumn largoperno;
         private DataGridViewTextBoxColumn diametropulgada;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private Button btnVolver;
     }
 }

@@ -30,37 +30,20 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m12));
             btnVolver = new Button();
             label1 = new Label();
             dgvM12 = new DataGridView();
-            milimetros = new DataGridViewTextBoxColumn();
-            diametropulgadas = new DataGridViewTextBoxColumn();
-            largopulgadas = new DataGridViewTextBoxColumn();
-            alternativa = new DataGridViewTextBoxColumn();
-            diferencia = new DataGridViewTextBoxColumn();
-            dgvM1215 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            label2 = new Label();
-            label3 = new Label();
-            dgvM12175 = new DataGridView();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            largom12 = new DataGridViewTextBoxColumn();
+            diametropulgadam12 = new DataGridViewTextBoxColumn();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             label4 = new Label();
+            cmbM12 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvM12).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvM1215).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvM12175).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
@@ -77,12 +60,14 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(156, 12);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(342, 80);
             label1.Name = "label1";
-            label1.Size = new Size(584, 38);
+            label1.Size = new Size(415, 38);
             label1.TabIndex = 5;
-            label1.Text = "M12 en milimetros, pulgadas y alternativas";
+            label1.Text = "M12 en milimetros y pulgadas";
             // 
             // dgvM12
             // 
@@ -96,7 +81,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvM12.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvM12.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvM12.Columns.AddRange(new DataGridViewColumn[] { milimetros, diametropulgadas, largopulgadas, alternativa, diferencia });
+            dgvM12.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, largom12, diametropulgadam12 });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -105,215 +90,89 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM12.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM12.Location = new Point(1, 118);
+            dgvM12.Location = new Point(393, 228);
             dgvM12.Name = "dgvM12";
             dgvM12.RowHeadersWidth = 51;
-            dgvM12.Size = new Size(810, 216);
-            dgvM12.TabIndex = 6;
-            // 
-            // milimetros
-            // 
-            milimetros.HeaderText = "Milimetros";
-            milimetros.MinimumWidth = 6;
-            milimetros.Name = "milimetros";
-            milimetros.Width = 200;
-            // 
-            // diametropulgadas
-            // 
-            diametropulgadas.HeaderText = "Diametro en pulgadas";
-            diametropulgadas.MinimumWidth = 6;
-            diametropulgadas.Name = "diametropulgadas";
-            diametropulgadas.Width = 125;
-            // 
-            // largopulgadas
-            // 
-            largopulgadas.HeaderText = "Largo en pulgadas";
-            largopulgadas.MinimumWidth = 6;
-            largopulgadas.Name = "largopulgadas";
-            largopulgadas.Width = 125;
-            // 
-            // alternativa
-            // 
-            alternativa.HeaderText = "Alternativa";
-            alternativa.MinimumWidth = 6;
-            alternativa.Name = "alternativa";
-            alternativa.Width = 150;
-            // 
-            // diferencia
-            // 
-            diferencia.HeaderText = "Diferencia";
-            diferencia.MinimumWidth = 6;
-            diferencia.Name = "diferencia";
-            diferencia.Width = 125;
-            // 
-            // dgvM1215
-            // 
-            dgvM1215.BackgroundColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvM1215.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgvM1215.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvM1215.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvM1215.DefaultCellStyle = dataGridViewCellStyle4;
-            dgvM1215.Location = new Point(1, 385);
-            dgvM1215.Name = "dgvM1215";
-            dgvM1215.RowHeadersWidth = 51;
-            dgvM1215.Size = new Size(810, 237);
-            dgvM1215.TabIndex = 7;
+            dgvM12.Size = new Size(520, 688);
+            dgvM12.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
             // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Milimetros";
             dataGridViewTextBoxColumn1.HeaderText = "Milimetros";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 200;
+            dataGridViewTextBoxColumn1.Width = 170;
             // 
-            // dataGridViewTextBoxColumn2
+            // largom12
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Diametro en pulgadas";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 125;
+            largom12.DataPropertyName = "Largo12";
+            largom12.HeaderText = "Largo";
+            largom12.MinimumWidth = 6;
+            largom12.Name = "largom12";
+            largom12.Width = 125;
             // 
-            // dataGridViewTextBoxColumn3
+            // diametropulgadam12
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Largo en pulgadas";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.Width = 125;
+            diametropulgadam12.DataPropertyName = "DiametroEnPulgadas";
+            diametropulgadam12.HeaderText = "Diametro en pulgadas";
+            diametropulgadam12.MinimumWidth = 6;
+            diametropulgadam12.Name = "diametropulgadam12";
+            diametropulgadam12.Width = 170;
             // 
-            // dataGridViewTextBoxColumn4
+            // pictureBox1
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Alternativa";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.Width = 150;
+            pictureBox1.Image = Properties.Resources._1000021195;
+            pictureBox1.Location = new Point(-2, -2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn5
+            // pictureBox2
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Diferencia";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 84);
-            label2.Name = "label2";
-            label2.Size = new Size(372, 31);
-            label2.TabIndex = 8;
-            label2.Text = "PERNO FINO AUTOMOTRIZ (1.25)";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 351);
-            label3.Name = "label3";
-            label3.Size = new Size(204, 31);
-            label3.TabIndex = 9;
-            label3.Text = "PERNO FINO (1.5)";
-            // 
-            // dgvM12175
-            // 
-            dgvM12175.BackgroundColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvM12175.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgvM12175.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvM12175.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvM12175.DefaultCellStyle = dataGridViewCellStyle6;
-            dgvM12175.Location = new Point(1, 687);
-            dgvM12175.Name = "dgvM12175";
-            dgvM12175.RowHeadersWidth = 51;
-            dgvM12175.Size = new Size(810, 232);
-            dgvM12175.TabIndex = 10;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Milimetros";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "Diametro en pulgadas";
-            dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Largo en pulgadas";
-            dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.HeaderText = "Alternativa";
-            dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.HeaderText = "Diferencia";
-            dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.Width = 125;
+            pictureBox2.Image = Properties.Resources._1000021195;
+            pictureBox2.Location = new Point(448, -2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(885, 204);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 20;
+            pictureBox2.TabStop = false;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 653);
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(49, 228);
             label4.Name = "label4";
-            label4.Size = new Size(253, 31);
-            label4.TabIndex = 11;
-            label4.Text = "PERNO GRUESO (1.75)";
+            label4.Size = new Size(224, 28);
+            label4.TabIndex = 26;
+            label4.Text = "Medidas de los pernos";
+            // 
+            // cmbM12
+            // 
+            cmbM12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbM12.FormattingEnabled = true;
+            cmbM12.Location = new Point(49, 259);
+            cmbM12.Name = "cmbM12";
+            cmbM12.Size = new Size(224, 36);
+            cmbM12.TabIndex = 25;
+            cmbM12.SelectedIndexChanged += cmbM12_SelectedIndexChanged;
             // 
             // m12
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(823, 920);
+            ClientSize = new Size(925, 930);
             Controls.Add(label4);
-            Controls.Add(dgvM12175);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(dgvM1215);
+            Controls.Add(cmbM12);
             Controls.Add(dgvM12);
             Controls.Add(label1);
             Controls.Add(btnVolver);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -322,8 +181,8 @@
             Text = "Pernos M12 (1/2\")";
             Load += m12_Load;
             ((System.ComponentModel.ISupportInitialize)dgvM12).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvM1215).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvM12175).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -333,25 +192,12 @@
         private Button btnVolver;
         private Label label1;
         private DataGridView dgvM12;
-        private DataGridView dgvM1215;
-        private Label label2;
-        private Label label3;
-        private DataGridView dgvM12175;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
         private Label label4;
-        private DataGridViewTextBoxColumn milimetros;
-        private DataGridViewTextBoxColumn diametropulgadas;
-        private DataGridViewTextBoxColumn largopulgadas;
-        private DataGridViewTextBoxColumn alternativa;
-        private DataGridViewTextBoxColumn diferencia;
+        private ComboBox cmbM12;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn largom12;
+        private DataGridViewTextBoxColumn diametropulgadam12;
     }
 }

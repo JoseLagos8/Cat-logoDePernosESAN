@@ -11,20 +11,21 @@ using Microsoft.Data.SqlClient;
 
 namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
-    public partial class m10 : Form
+    public partial class PernosGrandes : Form
     {
         string conexión = @"Server=JOLALA\SQLEXPRESS;
-                        Database=P_MilimetroPulgada;
+                        Database=P_Grandes;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
 
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
     {
-        { "M10 1.25", "M10" },
-        { "M10 1.5", "M10_15" }
+        { "Perno Fino", "PernoFino" },
+        { "Perno Corriente", "PernoCorriente" }
     };
-        public m10()
+
+        public PernosGrandes()
         {
             InitializeComponent();
 
@@ -35,8 +36,8 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
             this.Location = new Point(x, y);
 
-            dgvM10.ReadOnly = true;
-            dgvM10.AllowUserToAddRows = false;
+            dgvPernoG.ReadOnly = true;
+            dgvPernoG.AllowUserToAddRows = false;
         }
 
         private const int WM_SYSCOMMAND = 0x0112;
@@ -54,42 +55,18 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             }
             base.WndProc(ref m);
         }
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        public void MostrarDatosM10()
-        {
-            string sql = "SELECT * FROM m10";
 
-            using (SqlConnection cnn = new SqlConnection(conexión))
-            {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dgvM10.Rows.Add(reader[0], reader[1], reader[2]);
-                        }
-                    }
-                }
-            }
+        private void PernosGrandes_Load(object sender, EventArgs e)
+        {
+            cmbPernoG.Items.Add("Perno Fino");
+            cmbPernoG.Items.Add("Perno Corriente");
+
+            cmbPernoG.SelectedIndex = 0;
         }
 
-        private void m10_Load(object sender, EventArgs e)
+        private void cmbPernoG_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            MostrarDatosM10();
-            cmbM10.Items.Add("M10 1.25");
-            cmbM10.Items.Add("M10 1.5");
-
-            cmbM10.SelectedIndex = 0;
-        }
-
-        private void cmbM10_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string seleccion = cmbM10.SelectedItem.ToString();
+            string seleccion = cmbPernoG.SelectedItem.ToString();
 
             if (mapaTablas.ContainsKey(seleccion))
             {
@@ -102,7 +79,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             {
                 using (SqlConnection conexion = new SqlConnection(conexión))
                 {
-                    string query = $"SELECT Milimetros, Largo10, DiametroEnPulgadas FROM {tabla}";
+                    string query = $"SELECT * FROM {tabla}";
 
                     SqlDataAdapter adaptador = new SqlDataAdapter(query, conexion);
                     DataTable dt = new DataTable();
@@ -110,15 +87,22 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     conexion.Open();
                     adaptador.Fill(dt);
 
-                    dgvM10.DataSource = null;
-                    dgvM10.DataSource = dt;
+                    dgvPernoG.DataSource = dt;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
+            if (dgvPernoG.Columns.Count > 0)
+            {
+                dgvPernoG.Columns[0].Width = 300;
+            }
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

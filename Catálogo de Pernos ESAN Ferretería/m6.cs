@@ -14,7 +14,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
     public partial class m6 : Form
     {
         string conexión = @"Server=JOLALA\SQLEXPRESS;
-                        Database=PERNOS_ESAN;
+                        Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
@@ -60,7 +60,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
         public void MostrarDatosM6()
         {
-            string sql = "SELECT * FROM M6_125";
+            string sql = "SELECT * FROM m6";
 
             using (SqlConnection cnn = new SqlConnection(conexión))
             {
@@ -71,7 +71,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     {
                         while (reader.Read())
                         {
-                            dgvM6.Rows.Add(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                            dgvM6.Rows.Add(reader[0], reader[1], reader[2]);
                         }
                     }
                 }

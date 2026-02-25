@@ -11,14 +11,14 @@ using Microsoft.Data.SqlClient;
 
 namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
-    public partial class m8 : Form
+    public partial class m14 : Form
     {
         string conexión = @"Server=JOLALA\SQLEXPRESS;
                         Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
-        public m8()
+        public m14()
         {
             InitializeComponent();
 
@@ -29,8 +29,8 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
             this.Location = new Point(x, y);
 
-            dgvM8.ReadOnly = true;
-            dgvM8.AllowUserToAddRows = false;
+            dgvM14.ReadOnly = true;
+            dgvM14.AllowUserToAddRows = false;
         }
 
         private const int WM_SYSCOMMAND = 0x0112;
@@ -48,18 +48,14 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             }
             base.WndProc(ref m);
         }
-        private void btnVolver_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void m8_Load(object sender, EventArgs e)
+        private void m14_Load(object sender, EventArgs e)
         {
-            MostrarDatosM8();
+            MostrarDatosM14();
         }
-        public void MostrarDatosM8()
+        public void MostrarDatosM14()
         {
-            string sql = "SELECT * FROM m8";
+            string sql = "SELECT * FROM m14";
 
             using (SqlConnection cnn = new SqlConnection(conexión))
             {
@@ -70,11 +66,16 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                     {
                         while (reader.Read())
                         {
-                            dgvM8.Rows.Add(reader[0], reader[1], reader[2]);
+                            dgvM14.Rows.Add(reader[0], reader[1], reader[2]);
                         }
                     }
                 }
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

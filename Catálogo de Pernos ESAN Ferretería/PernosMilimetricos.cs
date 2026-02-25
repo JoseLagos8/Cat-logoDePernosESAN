@@ -11,17 +11,17 @@ using Microsoft.Data.SqlClient;
 
 namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
-    public partial class m8 : Form
+    public partial class PernosMilimetricos : Form
     {
         string conexión = @"Server=JOLALA\SQLEXPRESS;
-                        Database=P_MilimetroPulgada;
-                        Trusted_Connection=True;
-                        Encrypt=True;
-                        TrustServerCertificate=True;";
-        public m8()
+                            Database=P_MilimetroPulgada;
+                            Trusted_Connection=True;
+                            Encrypt=True;
+                            TrustServerCertificate=True;";
+
+        public PernosMilimetricos()
         {
             InitializeComponent();
-
             this.StartPosition = FormStartPosition.Manual;
 
             int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
@@ -29,8 +29,8 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
             this.Location = new Point(x, y);
 
-            dgvM8.ReadOnly = true;
-            dgvM8.AllowUserToAddRows = false;
+            dgvPernosMGeneral.ReadOnly = true;
+            dgvPernosMGeneral.AllowUserToAddRows = false;
         }
 
         private const int WM_SYSCOMMAND = 0x0112;
@@ -48,33 +48,41 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             }
             base.WndProc(ref m);
         }
-        private void btnVolver_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void m8_Load(object sender, EventArgs e)
+        public void MostrarTodosLosDatos()
         {
-            MostrarDatosM8();
-        }
-        public void MostrarDatosM8()
-        {
-            string sql = "SELECT * FROM m8";
+            string[] tablas = { "m6", "m8", "m10", "m12", "m14", "m16" };
 
             using (SqlConnection cnn = new SqlConnection(conexión))
             {
                 cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+
+                foreach (string tabla in tablas)
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    string sql = $"SELECT * FROM {tabla}";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
                     {
-                        while (reader.Read())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            dgvM8.Rows.Add(reader[0], reader[1], reader[2]);
+                            while (reader.Read())
+                            {
+                                dgvPernosMGeneral.Rows.Add(reader[0], reader[1], reader[2]);
+                            }
                         }
                     }
                 }
             }
+        }
+
+        private void PernosMilimetricos_Load(object sender, EventArgs e)
+        {
+            MostrarTodosLosDatos();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

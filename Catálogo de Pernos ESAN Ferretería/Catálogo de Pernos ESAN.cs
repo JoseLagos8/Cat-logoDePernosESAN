@@ -1,216 +1,269 @@
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
-using System.Xml;
-using System.IO;
 using Newtonsoft.Json;
 using System.Data;
+using Microsoft.Win32;
+using System.Drawing;
+using System.Linq;
+using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
-
     public partial class Form1 : Form
-
     {
+        // Cadenas de conexión
         string conexión = @"Server=JOLALA\SQLEXPRESS;
-                        Database=PERNOS_ESAN;
-                        Trusted_Connection=True;
-                        Encrypt=True;
-                        TrustServerCertificate=True;";
+                            Database=P_MilimetroPulgada;
+                            Trusted_Connection=True;
+                            Encrypt=True;
+                            TrustServerCertificate=True;";
 
+        string conexión2 = @"Server=JOLALA\SQLEXPRESS;
+                            Database=P_Grandes;
+                            Trusted_Connection=True;
+                            Encrypt=True;
+                            TrustServerCertificate=True;";
+
+        string conexión3 = @"Server=JOLALA\SQLEXPRESS;
+                            Database=P_HiloCorriente;
+                            Trusted_Connection=True;
+                            Encrypt=True;
+                            TrustServerCertificate=True;";
+
+        string conexión4 = @"Server=JOLALA\SQLEXPRESS;
+                            Database=P_HiloFino;
+                            Trusted_Connection=True;
+                            Encrypt=True;
+                            TrustServerCertificate=True;";
+
+        private bool cierreAutorizado = false;
 
         List<Perno> pernos = new List<Perno>();
-        Dictionary<string, int> contadorBusquedas = new Dictionary<string, int>();
+
+        private List<string> BuscarEnBase(string conexionString, string texto)
+        {
+            List<string> resultados = new List<string>();
+
+            using (SqlConnection con = new SqlConnection(conexionString))
+            {
+                con.Open();
+
+                DataTable tablas = con.GetSchema("Tables");
+
+                foreach (DataRow row in tablas.Rows)
+                {
+                    string nombreTabla = row["TABLE_NAME"].ToString();
+
+                    try
+                    {
+                        string query = $"SELECT * FROM [{nombreTabla}] WHERE [Diametro X Largo en pulgadas] LIKE @texto";
+
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    resultados.Add(reader[0].ToString());
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+
+            return resultados;
+        }
+        public class ResultadoBusqueda
+        {
+            public string Texto { get; set; }
+            public string Formulario { get; set; }
+
+            public override string ToString()
+            {
+                return Texto;
+            }
+        }
 
         public Form1()
         {
             InitializeComponent();
+            ConfiguracionInicial();
+        }
 
+        private void ConfiguracionInicial()
+        {
             this.TopMost = true;
-            this.ShowInTaskbar = true;
             this.MaximizeBox = false;
-            this.MinimizeBox = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.StartPosition = FormStartPosition.Manual;
+
+            int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
+            int y = Screen.PrimaryScreen.WorkingArea.Top;
+            this.Location = new Point(x, y);
+
+            ConfigurarInicioAutomatico();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
-            int y = Screen.PrimaryScreen.WorkingArea.Top;
-
-            this.Location = new Point(x, y);
-
             CargarPernos();
-            CargarHistorial();
-        }
-
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            GuardarHistorial();
-            e.Cancel = true;
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private const int WM_SYSCOMMAND = 0x0112;
-        private const int SC_MOVE = 0xF010;
-
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == WM_SYSCOMMAND)
-            {
-                int command = m.WParam.ToInt32() & 0xfff0;
-                if (command == SC_MOVE)
-                {
-                    return;
-                }
-            }
-            base.WndProc(ref m);
-        }
-
-        private void btnM6_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            m6 formM6 = new m6();
-            formM6.ShowDialog();
-            this.Show();
-        }
-
-        private void btmM8_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            m8 formM8 = new m8();
-            formM8.ShowDialog();
-            this.Show();
-        }
-
-        private void btnM10_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            m10 formM10 = new m10();
-            formM10.ShowDialog();
-            this.Show();
-        }
-
-        private void btnM12_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            m12 formM12 = new m12();
-            formM12.ShowDialog();
-            this.Show();
         }
 
         public void CargarPernos()
         {
-            {
-                pernos.Clear();
-
-                pernos.Add(new Perno { Milimetro = "M6", Paso = "1.25", Pulgada = "1/4", Descripcion = "M6 x 1.25 (1/4\")", FormDestino = "FormM6" });
-
-                pernos.Add(new Perno { Milimetro = "M8", Paso = "1.25", Pulgada = "5/16", Descripcion = "M8 x 1.25 (5/16\")", FormDestino = "FormM8" });
-
-                pernos.Add(new Perno { Milimetro = "M10", Paso = "1.25", Pulgada = "3/8", Descripcion = "M10 x 1.25 (3/8\")", FormDestino = "FormM10_125" });
-                pernos.Add(new Perno { Milimetro = "M10", Paso = "1.5", Pulgada = "3/8", Descripcion = "M10 x 1.5 (3/8\")", FormDestino = "FormM10_15" });
-
-                pernos.Add(new Perno { Milimetro = "M12", Paso = "1.25", Pulgada = "1/2", Descripcion = "M12 x 1.25 (1/2\")", FormDestino = "FormM12_125" });
-                pernos.Add(new Perno { Milimetro = "M12", Paso = "1.5", Pulgada = "1/2", Descripcion = "M12 x 1.5 (1/2\")", FormDestino = "FormM12_15" });
-                pernos.Add(new Perno { Milimetro = "M12", Paso = "1.75", Pulgada = "1/2", Descripcion = "M12 x 1.75 (1/2\")", FormDestino = "FormM12_175" });
-            }
+            pernos.Clear();
+            pernos.Add(new Perno { Milimetro = "M6", Paso = "1.25", Pulgada = "1/4", Descripcion = "M6 x 1.25 (1/4\")", FormDestino = "FormM6" });
+            pernos.Add(new Perno { Milimetro = "M8", Paso = "1.25", Pulgada = "5/16", Descripcion = "M8 x 1.25 (5/16\")", FormDestino = "FormM8" });
+            pernos.Add(new Perno { Milimetro = "M10", Paso = "1.25", Pulgada = "3/8", Descripcion = "M10 x 1.25 (3/8\")", FormDestino = "FormM10_125" });
+            pernos.Add(new Perno { Milimetro = "M10", Paso = "1.5", Pulgada = "3/8", Descripcion = "M10 x 1.5 (3/8\")", FormDestino = "FormM10_15" });
+            pernos.Add(new Perno { Milimetro = "M12", Paso = "1.25", Pulgada = "1/2", Descripcion = "M12 x 1.25 (1/2\")", FormDestino = "FormM12_125" });
+            pernos.Add(new Perno { Milimetro = "M12", Paso = "1.5", Pulgada = "1/2", Descripcion = "M12 x 1.5 (1/2\")", FormDestino = "FormM12_15" });
+            pernos.Add(new Perno { Milimetro = "M12", Paso = "1.75", Pulgada = "1/2", Descripcion = "M12 x 1.75 (1/2\")", FormDestino = "FormM12_175" });
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            string texto = txtBuscar.Text.ToLower().Trim();
+            string texto = txtBuscar.Text.Trim().ToLower();
 
-            var resultados = pernos
-                .Where(p =>
-                    p.Milimetro.ToLower().Contains(texto) ||
-                    p.Paso.ToLower().Contains(texto) ||
-                    p.Pulgada.ToLower().Contains(texto) ||
-                    p.Descripcion.ToLower().Contains(texto)
-                )
-                .ToList();
+            if (string.IsNullOrEmpty(texto))
+            {
+                LBResultados.Visible = false;
+                return;
+            }
+
+            List<ResultadoBusqueda> resultados = new List<ResultadoBusqueda>();
+
+            resultados.AddRange(
+                pernos
+                .Where(p => p.Descripcion.ToLower().Contains(texto) ||
+                            p.Milimetro.ToLower().Contains(texto))
+                .Select(p => new ResultadoBusqueda
+                {
+                    Texto = p.Descripcion,
+                    Formulario = p.FormDestino
+                })
+            );
+
+            resultados.AddRange(BuscarEnBaseConFormulario(conexión2, texto, "FormGrandes"));
+            resultados.AddRange(BuscarEnBaseConFormulario(conexión3, texto, "FormHiloCorriente"));
+            resultados.AddRange(BuscarEnBaseConFormulario(conexión4, texto, "FormHiloFino"));
 
             LBResultados.DataSource = null;
             LBResultados.DataSource = resultados;
-            LBResultados.DisplayMember = "Descripcion";
             LBResultados.Visible = resultados.Count > 0;
+        }
+        private string ObtenerNombreAmigable(string nombreForm)
+        {
+            switch (nombreForm)
+            {
+                case "FormGrandes":
+                    return "Pernos Grandes";
+
+                case "FormHiloCorriente":
+                    return "Perno Hilo Corriente";
+
+                case "FormHiloFino":
+                    return "Perno Hilo Fino";
+
+                case "FormM6":
+                case "FormM8":
+                case "FormM10_125":
+                case "FormM10_15":
+                case "FormM12_125":
+                case "FormM12_15":
+                case "FormM12_175":
+                    return "Perno Métrico";
+
+                default:
+                    return nombreForm;
+            }
+        }
+
+
+        private List<ResultadoBusqueda> BuscarEnBaseConFormulario(string conexionString, string texto, string nombreForm)
+        {
+            List<ResultadoBusqueda> resultados = new List<ResultadoBusqueda>();
+
+            using (SqlConnection con = new SqlConnection(conexionString))
+            {
+                con.Open();
+                DataTable tablas = con.GetSchema("Tables");
+
+                foreach (DataRow row in tablas.Rows)
+                {
+                    string nombreTabla = row["TABLE_NAME"].ToString();
+
+                    try
+                    {
+                        string query = $"SELECT [Diametro X Largo en pulgadas] FROM {nombreTabla} WHERE [Diametro X Largo en pulgadas] LIKE @texto";
+
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    resultados.Add(new ResultadoBusqueda
+                                    {
+                                        Texto = reader[0].ToString() + " (" + ObtenerNombreAmigable(nombreForm) + ")",
+                                        Formulario = nombreForm
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
+
+            return resultados;
         }
 
         private void AbrirForm(string formDestino)
         {
             Form form = null;
-
             switch (formDestino)
             {
                 case "FormM6": form = new m6(); break;
                 case "FormM8": form = new m8(); break;
-
-                case "FormM10_125": form = new m10(); break;
-                case "FormM10_15": form = new m10(); break;
-
-                case "FormM12_125": form = new m12(); break;
-                case "FormM12_15": form = new m12(); break;
+                case "FormM10_125": case "FormM10_15": form = new m10(); break;
+                case "FormM12_125":
+                case "FormM12_15":
                 case "FormM12_175": form = new m12(); break;
             }
-
-            if (form != null)
+            if (form != null) { this.Hide(); form.ShowDialog(); this.Show(); }
+        }
+      
+        private void ConfigurarInicioAutomatico()
+        {
+            try
             {
-                this.Hide();
-                form.ShowDialog();
-                this.Show();
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+                rk.SetValue("CatalogoPernosESAN", Application.ExecutablePath);
+            }
+            catch { }
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar la aplicación?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                cierreAutorizado = true;
+                Application.Exit();
             }
         }
 
-        private void AgregarAlHistorial(Perno p)
-        {
-            string clave = $"{p.Milimetro}-{p.Paso}";
-
-            if (contadorBusquedas.ContainsKey(clave))
-                contadorBusquedas[clave]++;
-            else
-                contadorBusquedas[clave] = 1;
-
-            ActualizarGrid();
-        }
-
-        private void LBResultados_DoubleClick(object sender, EventArgs e)
-        {
-
-            if (LBResultados.SelectedItem is Perno pernoSeleccionado)
-            {
-                txtBuscar.Clear();
-                LBResultados.Visible = false;
-
-                AbrirForm(pernoSeleccionado.FormDestino);
-                AgregarAlHistorial(pernoSeleccionado);
-                txtBuscar.Clear();
-                LBResultados.Visible = false;
-
-            }
-        }
-
-        private void ActualizarGrid()
-        {
-            dgvHistorial.Rows.Clear();
-
-            var ordenado = contadorBusquedas
-                .OrderByDescending(x => x.Value);
-
-            foreach (var item in ordenado)
-            {
-                var datos = pernos.First(p => $"{p.Milimetro}-{p.Paso}" == item.Key);
-
-                dgvHistorial.Rows.Add(
-                    datos.Milimetro,
-                    datos.Paso,
-                    datos.Pulgada,
-                    item.Value
-                );
-            }
-        }
-
-        // HISTORIAL DE BÚSQUEDAS
         public class HistorialItem
         {
             public string Codigo { get; set; }
@@ -218,74 +271,201 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             public int Cantidad { get; set; }
         }
 
-        private void GuardarHistorial()
+        private const int WM_SYSCOMMAND = 0x0112;
+        private const int SC_MOVE = 0xF010;
+
+        protected override void WndProc(ref Message m)
         {
-            var lista = contadorBusquedas.Select(x =>
+            if (m.Msg == WM_SYSCOMMAND && (m.WParam.ToInt32() & 0xfff0) == SC_MOVE) return;
+            base.WndProc(ref m);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!cierreAutorizado)
             {
-                var partes = x.Key.Split('-');
-                return new HistorialItem
-                {
-                    Codigo = partes[0],
-                    Paso = partes[1],
-                    Cantidad = x.Value
-                };
-            }).ToList();
-
-            string json = JsonConvert.SerializeObject(lista, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText("historial.json", json);
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
+        
 
-        private void CargarHistorial()
+        private void LBResultados_DoubleClick_1(object sender, EventArgs e)
         {
-            if (!File.Exists("historial.json")) return;
-
-            string json = File.ReadAllText("historial.json");
-            var lista = JsonConvert.DeserializeObject<List<HistorialItem>>(json);
-
-            foreach (var item in lista)
-                contadorBusquedas[$"{item.Codigo}-{item.Paso}"] = item.Cantidad;
-
-            ActualizarGrid();
-        }
-
-        private void btnLimpiarHistorial_Click_1(object sender, EventArgs e)
-        {
-            contadorBusquedas.Clear();
-            dgvHistorial.Rows.Clear();
-
-            if (File.Exists("historial.json"))
-                File.Delete("historial.json");
-        }
-
-
-        private void dgvHistorial_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            if (LBResultados.SelectedItem is ResultadoBusqueda seleccionado)
             {
-                string milimetroSeleccionado = dgvHistorial.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Form formAbrir = null;
 
-                var pernoEncontrado = pernos.FirstOrDefault(p => p.Milimetro == milimetroSeleccionado);
-
-                if (pernoEncontrado != null)
+                switch (seleccionado.Formulario)
                 {
-                    AbrirForm(pernoEncontrado.FormDestino);
+                    case "FormM6": formAbrir = new m6(); break;
+                    case "FormM8": formAbrir = new m8(); break;
+
+                    case "FormM10_125":
+                    case "FormM10_15":
+                        formAbrir = new m10();
+                        break;
+
+                    case "FormM12_125":
+                    case "FormM12_15":
+                    case "FormM12_175":
+                        formAbrir = new m12();
+                        break;
+
+                    case "FormGrandes":
+                        formAbrir = new PernosGrandes();
+                        break;
+
+                    case "FormHiloCorriente":
+                        formAbrir = new PernoHiloCorriente();
+                        break;
+
+                    case "FormHiloFino":
+                        formAbrir = new PernoHiloFino();
+                        break;
                 }
-                else
+
+                if (formAbrir != null)
                 {
-                    AbrirForm("Form" + milimetroSeleccionado);
+                    this.Hide();
+                    formAbrir.ShowDialog();
+                    this.Show();
                 }
             }
         }
+     
 
-        private void tuercasToolStripMenuItem_Click(object sender, EventArgs e)
+        //BOTONES DE LOS FORMS.
+        private void btnM6_Click(object sender, EventArgs e)
         {
-            Catálogo_de_Tuercas ventanaTuercas = new Catálogo_de_Tuercas();
+            m6 m6 = new m6();
+            m6.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
 
             this.Hide();
+            m6.Show();
+        }
 
-            ventanaTuercas.FormClosed += (s, args) => this.Show();
+        private void btnM8_Click(object sender, EventArgs e)
+        {
+            m8 m8 = new m8();
+            m8.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
 
-            ventanaTuercas.Show();
+            this.Hide();
+            m8.Show();
+        }
+
+        private void btnM10_Click(object sender, EventArgs e)
+        {
+            m10 m10 = new m10();
+            m10.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            m10.Show();
+        }
+
+        private void btnM12_Click(object sender, EventArgs e)
+        {
+            m12 m12 = new m12();
+            m12.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            m12.Show();
+        }
+
+        private void btnM14_Click(object sender, EventArgs e)
+        {
+            m14 m14 = new m14();
+            m14.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            m14.Show();
+        }
+
+        private void btnM16_Click(object sender, EventArgs e)
+        {
+            m16 m16 = new m16();
+            m16.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            m16.Show();
+        }
+
+        private void btnPernoHF_Click(object sender, EventArgs e)
+        {
+            PernoHiloFino PernoHF = new PernoHiloFino();
+            PernoHF.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            PernoHF.Show();
+        }
+
+        private void btnPernoHC_Click(object sender, EventArgs e)
+        {
+            PernoHiloCorriente PernoHC = new PernoHiloCorriente();
+            PernoHC.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            PernoHC.Show();
+        }
+
+        private void btnPernoGrande_Click(object sender, EventArgs e)
+        {
+            PernosGrandes PernoG = new PernosGrandes();
+            PernoG.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            PernoG.Show();
+        }
+
+        private void btnPernosMGeneral_Click(object sender, EventArgs e)
+        {
+            PernosMilimetricos PernoMGeneral = new PernosMilimetricos();
+            PernoMGeneral.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            PernoMGeneral.Show();
+        }
+
+        private void btnPernosPGeneral_Click(object sender, EventArgs e)
+        {
+            PernosPulgadas PernoPGeneral = new PernosPulgadas();
+            PernoPGeneral.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            this.Hide();
+            PernoPGeneral.Show();
         }
     }
 }
