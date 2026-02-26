@@ -14,22 +14,27 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
     public partial class PernosPulgadas : Form
     {
         string conexión = @"Server=192.168.1.191\SQLEXPRESS;
-                            Database=P_Grandes;
-                            Trusted_Connection=True;
-                            Encrypt=True;
-                            TrustServerCertificate=True;";
+                          Database=P_Grandes;
+                          User Id=usuario;
+                          Password=esan;
+                          Encrypt=True;
+                          TrustServerCertificate=True;";
 
-        string conexión2 = @"Server=JOLALA\SQLEXPRESS;
-                            Database=P_HiloCorriente;
-                            Trusted_Connection=True;
-                            Encrypt=True;
-                            TrustServerCertificate=True;";
+        string conexión2 = @"Server=192.168.1.191\SQLEXPRESS;
+                          Database=P_HiloCorriente;
+                          User Id=usuario;
+                          Password=esan;
+                          Encrypt=True;
+                          TrustServerCertificate=True;";
 
-        string conexión3 = @"Server=JOLALA\SQLEXPRESS;
-                            Database=P_HiloFino;
-                            Trusted_Connection=True;
-                            Encrypt=True;
-                            TrustServerCertificate=True;";
+        
+
+        string conexión3 = @"Server=192.168.1.191\SQLEXPRESS;
+                          Database=P_HiloFino;
+                          User Id=usuario;
+                          Password=esan;
+                          Encrypt=True;
+                          TrustServerCertificate=True;";
 
         public PernosPulgadas()
         {

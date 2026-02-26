@@ -15,10 +15,11 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
     public partial class PernoHiloFino : Form
     {
         string conexión = @"Server=192.168.1.191\SQLEXPRESS;
-                        Database=P_HiloFino;
-                        Trusted_Connection=True;
-                        Encrypt=True;
-                        TrustServerCertificate=True;";
+                          Database=P_HiloFino;
+                          User Id=usuario;
+                          Password=esan;
+                          Encrypt=True;
+                          TrustServerCertificate=True;";
         public string MedidaSeleccionada { get; set; }
 
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
