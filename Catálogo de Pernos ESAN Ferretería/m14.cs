@@ -13,7 +13,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
     public partial class m14 : Form
     {
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                         Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;

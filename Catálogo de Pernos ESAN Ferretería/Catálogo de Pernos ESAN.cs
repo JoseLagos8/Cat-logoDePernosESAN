@@ -15,25 +15,25 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
     public partial class Form1 : Form
     {
         // Cadenas de conexión
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                             Database=P_MilimetroPulgada;
                             Trusted_Connection=True;
                             Encrypt=True;
                             TrustServerCertificate=True;";
 
-        string conexión2 = @"Server=JOLALA\SQLEXPRESS;
+        string conexión2 = @"Server=192.168.1.191\SQLEXPRESS;
                             Database=P_Grandes;
                             Trusted_Connection=True;
                             Encrypt=True;
                             TrustServerCertificate=True;";
 
-        string conexión3 = @"Server=JOLALA\SQLEXPRESS;
+        string conexión3 = @"Server=192.168.1.191\SQLEXPRESS;
                             Database=P_HiloCorriente;
                             Trusted_Connection=True;
                             Encrypt=True;
                             TrustServerCertificate=True;";
 
-        string conexión4 = @"Server=JOLALA\SQLEXPRESS;
+        string conexión4 = @"Server=192.168.1.191\SQLEXPRESS;
                             Database=P_HiloFino;
                             Trusted_Connection=True;
                             Encrypt=True;
@@ -303,13 +303,33 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
                     case "FormM10_125":
                     case "FormM10_15":
-                        formAbrir = new m10();
+
+                        m10 formM10 = new m10();
+
+                        string medidaLimpia = seleccionado.Texto;
+
+                        if (medidaLimpia.Contains("1.25"))
+                            formM10.MedidaSeleccionada = "M10 1.25";
+                        else if (medidaLimpia.Contains("1.5"))
+                            formM10.MedidaSeleccionada = "M10 1.5";
+
+                        formAbrir = formM10;
                         break;
 
                     case "FormM12_125":
                     case "FormM12_15":
                     case "FormM12_175":
-                        formAbrir = new m12();
+
+                        m12 formM12 = new m12();
+
+                        if (seleccionado.Texto.Contains("1.25"))
+                            formM12.MedidaSeleccionada = "M12 1.25";
+                        else if (seleccionado.Texto.Contains("1.5"))
+                            formM12.MedidaSeleccionada = "M12 1.5";
+                        else if (seleccionado.Texto.Contains("1.75"))
+                            formM12.MedidaSeleccionada = "M12 1.75";
+
+                        formAbrir = formM12;
                         break;
 
                     case "FormGrandes":
@@ -317,11 +337,21 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                         break;
 
                     case "FormHiloCorriente":
-                        formAbrir = new PernoHiloCorriente();
+
+                        PernoHiloCorriente formHC = new PernoHiloCorriente();
+
+                        formHC.MedidaSeleccionada = seleccionado.Texto;
+
+                        formAbrir = formHC;
+
                         break;
 
                     case "FormHiloFino":
-                        formAbrir = new PernoHiloFino();
+
+                        PernoHiloFino formHiloFino = new PernoHiloFino();
+                        formHiloFino.MedidaSeleccionada = seleccionado.Texto;
+
+                        formAbrir = formHiloFino;
                         break;
                 }
 
@@ -333,7 +363,6 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                 }
             }
         }
-     
 
         //BOTONES DE LOS FORMS.
         private void btnM6_Click(object sender, EventArgs e)

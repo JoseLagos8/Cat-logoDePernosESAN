@@ -13,11 +13,12 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
     public partial class m12 : Form
     {
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                         Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
+        public string MedidaSeleccionada { get; set; }
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
     {
         { "M12 1.25", "M12" },
@@ -58,49 +59,19 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
         private void m12_Load(object sender, EventArgs e)
         {
-            MostrarDatosM12();
+            cmbM12.Items.Clear();
+
             cmbM12.Items.Add("M12 1.25");
             cmbM12.Items.Add("M12 1.5");
             cmbM12.Items.Add("M12 1.75");
 
-            cmbM12.SelectedIndex = 0;
-        }
-        public void MostrarDatosM12()
-        {
-            string sql = "SELECT * FROM m12";
-
-            using (SqlConnection cnn = new SqlConnection(conexión))
+            if (!string.IsNullOrEmpty(MedidaSeleccionada))
             {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dgvM12.Rows.Add(reader[0], reader[1], reader[2]);
-                        }
-                    }
-                }
+                cmbM12.SelectedItem = MedidaSeleccionada;
             }
-        }
-        public void MostrarDatosM10()
-        {
-            string sql = "SELECT * FROM m12";
-
-            using (SqlConnection cnn = new SqlConnection(conexión))
+            else
             {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dgvM12.Rows.Add(reader[0], reader[1], reader[2]);
-                        }
-                    }
-                }
+                cmbM12.SelectedIndex = 0;
             }
         }
         private void CargarDatos(string tabla)
@@ -134,6 +105,8 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 
         private void cmbM12_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbM12.SelectedItem == null) return;
+
             string seleccion = cmbM12.SelectedItem.ToString();
 
             if (mapaTablas.ContainsKey(seleccion))

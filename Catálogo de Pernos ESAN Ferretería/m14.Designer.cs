@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m14));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             dgvM14 = new DataGridView();
@@ -57,7 +58,7 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(317, 85);
+            label1.Location = new Point(285, 86);
             label1.Name = "label1";
             label1.Size = new Size(403, 76);
             label1.TabIndex = 21;
@@ -84,7 +85,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM14.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM14.Location = new Point(107, 227);
+            dgvM14.Location = new Point(68, 228);
             dgvM14.Name = "dgvM14";
             dgvM14.RowHeadersWidth = 51;
             dgvM14.Size = new Size(585, 612);
@@ -127,13 +128,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 861);
+            ClientSize = new Size(759, 861);
             Controls.Add(btnVolver);
             Controls.Add(dgvM14);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "m14";
-            Text = "m14";
+            Text = "Pernos M14 (9/16\")";
             Load += m14_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvM14).EndInit();

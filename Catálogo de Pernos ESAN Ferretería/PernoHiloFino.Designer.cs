@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PernoHiloFino));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
@@ -81,7 +82,7 @@
             cmbPernoHF.Name = "cmbPernoHF";
             cmbPernoHF.Size = new Size(224, 36);
             cmbPernoHF.TabIndex = 23;
-            cmbPernoHF.SelectedIndexChanged += cmbPernos_SelectedIndexChanged;
+            cmbPernoHF.SelectedIndexChanged += cmbPernosHF_SelectedIndexChanged;
             cmbPernoHF.TextChanged += cmbPernoHF_TextChanged;
             // 
             // dgvPernoHF
@@ -144,8 +145,9 @@
             Controls.Add(cmbPernoHF);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PernoHiloFino";
-            Text = "PernoHiloFino";
+            Text = "Pernos de Hilo Fino";
             Load += PernoHiloFino_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoHF).EndInit();

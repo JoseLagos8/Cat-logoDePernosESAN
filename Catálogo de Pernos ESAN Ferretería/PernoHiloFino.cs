@@ -14,11 +14,12 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
     public partial class PernoHiloFino : Form
     {
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                         Database=P_HiloFino;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
+        public string MedidaSeleccionada { get; set; }
 
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
     {
@@ -63,7 +64,9 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         }
 
         private void PernoHiloFino_Load(object sender, EventArgs e)
-        { 
+        {
+            cmbPernoHF.Items.Clear();
+
             cmbPernoHF.Items.Add("Perno 1/2");
             cmbPernoHF.Items.Add("Perno 1/4");
             cmbPernoHF.Items.Add("Perno 3/8");
@@ -71,19 +74,39 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             cmbPernoHF.Items.Add("Perno 5/8");
             cmbPernoHF.Items.Add("Perno 7/16");
             cmbPernoHF.Items.Add("Perno 9/16");
-        }
 
+            string medidaDetectada = null;
 
-        private void cmbPernos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string seleccion = cmbPernoHF.SelectedItem.ToString();
-
-            if (mapaTablas.ContainsKey(seleccion))
+            if (!string.IsNullOrEmpty(MedidaSeleccionada))
             {
-                CargarDatos(mapaTablas[seleccion]);
+                string primeraParte = MedidaSeleccionada.Split(' ')[0];
+                primeraParte = primeraParte.Replace("\"", "");
+
+                foreach (var item in cmbPernoHF.Items)
+                {
+                    string medidaCombo = item.ToString().Replace("Perno ", "");
+
+                    if (medidaCombo == primeraParte)
+                    {
+                        medidaDetectada = item.ToString();
+                        break;
+                    }
+                }
+            }
+
+            if (medidaDetectada != null)
+                cmbPernoHF.SelectedItem = medidaDetectada;
+            else
+                cmbPernoHF.SelectedIndex = 0;
+
+            if (cmbPernoHF.SelectedItem != null)
+            {
+                string seleccion = cmbPernoHF.SelectedItem.ToString();
+
+                if (mapaTablas.ContainsKey(seleccion))
+                    CargarDatos(mapaTablas[seleccion]);
             }
         }
-
         private void CargarDatos(string tabla)
         {
             try
@@ -106,14 +129,17 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
 
-            dgvPernoHF.Columns[0].Width = 300;
+            if (dgvPernoHF.Columns.Count > 0)
+            {
+                dgvPernoHF.Columns[0].Width = 300;
+            }
         }
 
         private void cmbPernoHF_TextChanged(object sender, EventArgs e)
         {
             LBResultados.Items.Clear();
 
-            string textoBusqueda = cmbPernoHF.Text.ToLower();
+            string textoBusqueda = cmbPernoHF.Text.ToLower().Trim();
 
             if (string.IsNullOrEmpty(textoBusqueda))
             {
@@ -125,7 +151,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             {
                 string itemTexto = item.ToString().ToLower();
 
-                if (itemTexto.Contains(textoBusqueda))
+                if (itemTexto.StartsWith(textoBusqueda))
                 {
                     LBResultados.Items.Add(item.ToString());
                 }
@@ -153,6 +179,18 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
                 {
                     CargarDatos(mapaTablas[seleccion]);
                 }
+            }
+        }
+
+        private void cmbPernosHF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPernoHF.SelectedItem == null) return;
+
+            string seleccion = cmbPernoHF.SelectedItem.ToString();
+
+            if (mapaTablas.ContainsKey(seleccion))
+            {
+                CargarDatos(mapaTablas[seleccion]);
             }
         }
     }

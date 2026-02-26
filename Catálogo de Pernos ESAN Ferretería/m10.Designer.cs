@@ -63,7 +63,7 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(314, 67);
+            label1.Location = new Point(292, 85);
             label1.Name = "label1";
             label1.Size = new Size(489, 46);
             label1.TabIndex = 4;
@@ -90,7 +90,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM10.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM10.Location = new Point(366, 226);
+            dgvM10.Location = new Point(267, 212);
             dgvM10.Name = "dgvM10";
             dgvM10.RowHeadersWidth = 51;
             dgvM10.Size = new Size(500, 689);
@@ -165,7 +165,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(878, 950);
+            ClientSize = new Size(809, 950);
             Controls.Add(label4);
             Controls.Add(cmbM10);
             Controls.Add(dgvM10);

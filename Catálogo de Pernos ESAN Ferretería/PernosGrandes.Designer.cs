@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PernosGrandes));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label4 = new Label();
@@ -134,9 +135,9 @@
             Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PernosGrandes";
-            RightToLeft = RightToLeft.Yes;
-            Text = "PernosGrandes";
+            Text = "Pernos Grandes con Hilo Fino y Corriente";
             Load += PernosGrandes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoG).EndInit();

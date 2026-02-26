@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m6));
             label1 = new Label();
-            label2 = new Label();
             btnVolver = new Button();
             dgvM6 = new DataGridView();
             milimetro = new DataGridViewTextBoxColumn();
@@ -51,23 +50,11 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(335, 60);
+            label1.Location = new Point(320, 88);
             label1.Name = "label1";
             label1.Size = new Size(387, 38);
             label1.TabIndex = 2;
             label1.Text = "M6 en milimetros y pulgada\r\n";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(8, 33, 131);
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(441, 98);
-            label2.Name = "label2";
-            label2.Size = new Size(217, 38);
-            label2.TabIndex = 4;
-            label2.Text = "PERNOS FINOS";
             // 
             // btnVolver
             // 
@@ -101,7 +88,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM6.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM6.Location = new Point(227, 217);
+            dgvM6.Location = new Point(122, 207);
             dgvM6.Name = "dgvM6";
             dgvM6.RowHeadersWidth = 51;
             dgvM6.Size = new Size(585, 612);
@@ -153,10 +140,9 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(962, 841);
+            ClientSize = new Size(772, 841);
             Controls.Add(dgvM6);
             Controls.Add(btnVolver);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
@@ -175,7 +161,6 @@
 
         #endregion
         private Label label1;
-        private Label label2;
         private Button btnVolver;
         private DataGridView dgvM6;
         private DataGridViewTextBoxColumn milimetro;

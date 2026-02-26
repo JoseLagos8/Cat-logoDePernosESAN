@@ -33,13 +33,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m8));
             label1 = new Label();
             dgvM8 = new DataGridView();
-            label2 = new Label();
-            btnVolver = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             milimetros = new DataGridViewTextBoxColumn();
             largom8 = new DataGridViewTextBoxColumn();
             diametroenpulgadasm8 = new DataGridViewTextBoxColumn();
+            btnVolver = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvM8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -51,7 +50,7 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(358, 64);
+            label1.Location = new Point(297, 81);
             label1.Name = "label1";
             label1.Size = new Size(399, 38);
             label1.TabIndex = 3;
@@ -78,23 +77,32 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM8.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM8.Location = new Point(177, 222);
+            dgvM8.Location = new Point(101, 222);
             dgvM8.Name = "dgvM8";
             dgvM8.RowHeadersWidth = 51;
             dgvM8.Size = new Size(520, 614);
             dgvM8.TabIndex = 4;
             // 
-            // label2
+            // milimetros
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(8, 33, 131);
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(358, 102);
-            label2.Name = "label2";
-            label2.Size = new Size(376, 38);
-            label2.TabIndex = 5;
-            label2.Text = "PERNO FINO AUTOMOTRIZ";
+            milimetros.HeaderText = "Milimetros";
+            milimetros.MinimumWidth = 6;
+            milimetros.Name = "milimetros";
+            milimetros.Width = 170;
+            // 
+            // largom8
+            // 
+            largom8.HeaderText = "Largo";
+            largom8.MinimumWidth = 6;
+            largom8.Name = "largom8";
+            largom8.Width = 125;
+            // 
+            // diametroenpulgadasm8
+            // 
+            diametroenpulgadasm8.HeaderText = "Diametro en pulgadas";
+            diametroenpulgadasm8.MinimumWidth = 6;
+            diametroenpulgadasm8.Name = "diametroenpulgadasm8";
+            diametroenpulgadasm8.Width = 170;
             // 
             // btnVolver
             // 
@@ -127,35 +135,13 @@
             pictureBox2.TabIndex = 21;
             pictureBox2.TabStop = false;
             // 
-            // milimetros
-            // 
-            milimetros.HeaderText = "Milimetros";
-            milimetros.MinimumWidth = 6;
-            milimetros.Name = "milimetros";
-            milimetros.Width = 170;
-            // 
-            // largom8
-            // 
-            largom8.HeaderText = "Largo";
-            largom8.MinimumWidth = 6;
-            largom8.Name = "largom8";
-            largom8.Width = 125;
-            // 
-            // diametroenpulgadasm8
-            // 
-            diametroenpulgadasm8.HeaderText = "Diametro en pulgadas";
-            diametroenpulgadasm8.MinimumWidth = 6;
-            diametroenpulgadasm8.Name = "diametroenpulgadasm8";
-            diametroenpulgadasm8.Width = 170;
-            // 
             // m8
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(843, 848);
+            ClientSize = new Size(719, 848);
             Controls.Add(btnVolver);
-            Controls.Add(label2);
             Controls.Add(dgvM8);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -177,7 +163,6 @@
         #endregion
         private Label label1;
         private DataGridView dgvM8;
-        private Label label2;
         private Button btnVolver;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;

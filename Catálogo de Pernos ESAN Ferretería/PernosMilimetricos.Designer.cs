@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PernosMilimetricos));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             dgvPernosMGeneral = new DataGridView();
@@ -131,8 +132,9 @@
             Controls.Add(dgvPernosMGeneral);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PernosMilimetricos";
-            Text = "PernosMilimetricos";
+            Text = "Pernos de Milimetricos a Pulgadas";
             Load += PernosMilimetricos_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernosMGeneral).EndInit();

@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PernoHiloCorriente));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             cmbPernoHC = new ComboBox();
@@ -144,8 +145,9 @@
             Controls.Add(cmbPernoHC);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PernoHiloCorriente";
-            Text = "PernoHiloCorriente";
+            Text = "Pernos de Hilo Corriente";
             Load += PernoHiloCorriente_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoHC).EndInit();

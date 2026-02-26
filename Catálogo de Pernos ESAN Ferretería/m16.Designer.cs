@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(m16));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             dgvM16 = new DataGridView();
@@ -132,8 +133,9 @@
             Controls.Add(dgvM16);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "m16";
-            Text = "m16";
+            Text = "Pernos M16 (5/8\")";
             Load += m16_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvM16).EndInit();

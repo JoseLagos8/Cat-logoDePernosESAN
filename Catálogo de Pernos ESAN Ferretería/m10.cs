@@ -13,12 +13,12 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
     public partial class m10 : Form
     {
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                         Database=P_MilimetroPulgada;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
-
+        public string MedidaSeleccionada { get; set; }
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
     {
         { "M10 1.25", "M10" },
@@ -58,33 +58,18 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         {
             this.Close();
         }
-        public void MostrarDatosM10()
-        {
-            string sql = "SELECT * FROM m10";
-
-            using (SqlConnection cnn = new SqlConnection(conexión))
-            {
-                cnn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dgvM10.Rows.Add(reader[0], reader[1], reader[2]);
-                        }
-                    }
-                }
-            }
-        }
-
+        
         private void m10_Load(object sender, EventArgs e)
         {
-            MostrarDatosM10();
             cmbM10.Items.Add("M10 1.25");
             cmbM10.Items.Add("M10 1.5");
 
             cmbM10.SelectedIndex = 0;
+
+            if (!string.IsNullOrEmpty(MedidaSeleccionada))
+            {
+                cmbM10.SelectedItem = MedidaSeleccionada;
+            }
         }
 
         private void cmbM10_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,6 +102,11 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
+            if (dgvM10.Rows.Count > 0)
+            {
+                dgvM10.Rows[0].Selected = true;
+                dgvM10.FirstDisplayedScrollingRowIndex = 0;
             }
         }
 

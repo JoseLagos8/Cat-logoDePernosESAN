@@ -13,12 +13,12 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
 {
     public partial class PernoHiloCorriente : Form
     {
-        string conexión = @"Server=JOLALA\SQLEXPRESS;
+        string conexión = @"Server=192.168.1.191\SQLEXPRESS;
                         Database=P_HiloCorriente;
                         Trusted_Connection=True;
                         Encrypt=True;
                         TrustServerCertificate=True;";
-
+        public string MedidaSeleccionada { get; set; }
         Dictionary<string, string> mapaTablas = new Dictionary<string, string>()
     {
         { "Perno 1/2", "hc12" },
@@ -69,10 +69,44 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             cmbPernoHC.Items.Add("Perno 5/8");
             cmbPernoHC.Items.Add("Perno 7/16");
             cmbPernoHC.Items.Add("Perno 9/16");
+
+            string medidaDetectada = null;
+
+            if (!string.IsNullOrEmpty(MedidaSeleccionada))
+            {
+                string primeraParte = MedidaSeleccionada.Split(' ')[0];
+                primeraParte = primeraParte.Replace("\"", "");
+
+                foreach (var item in cmbPernoHC.Items)
+                {
+                    string medidaCombo = item.ToString().Replace("Perno ", "");
+
+                    if (medidaCombo == primeraParte)
+                    {
+                        medidaDetectada = item.ToString();
+                        break;
+                    }
+                }
+            }
+
+            if (medidaDetectada != null)
+                cmbPernoHC.SelectedItem = medidaDetectada;
+            else
+                cmbPernoHC.SelectedIndex = 0;
+
+            if (cmbPernoHC.SelectedItem != null)
+            {
+                string seleccion = cmbPernoHC.SelectedItem.ToString();
+
+                if (mapaTablas.ContainsKey(seleccion))
+                    CargarDatos(mapaTablas[seleccion]);
+            }
         }
 
         private void cmbPernoHC_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbPernoHC.SelectedItem == null) return;
+
             string seleccion = cmbPernoHC.SelectedItem.ToString();
 
             if (mapaTablas.ContainsKey(seleccion))
@@ -115,7 +149,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
         {
             LBResultados.Items.Clear();
 
-            string textoBusqueda = cmbPernoHC.Text.ToLower();
+            string textoBusqueda = cmbPernoHC.Text.ToLower().Trim();
 
             if (string.IsNullOrEmpty(textoBusqueda))
             {
@@ -127,7 +161,7 @@ namespace Catálogo_de_Pernos_ESAN_Ferretería
             {
                 string itemTexto = item.ToString().ToLower();
 
-                if (itemTexto.Contains(textoBusqueda))
+                if (itemTexto.StartsWith(textoBusqueda))
                 {
                     LBResultados.Items.Add(item.ToString());
                 }

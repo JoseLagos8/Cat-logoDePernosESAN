@@ -63,7 +63,7 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(342, 80);
+            label1.Location = new Point(317, 83);
             label1.Name = "label1";
             label1.Size = new Size(415, 38);
             label1.TabIndex = 5;
@@ -90,7 +90,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM12.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM12.Location = new Point(393, 228);
+            dgvM12.Location = new Point(283, 221);
             dgvM12.Name = "dgvM12";
             dgvM12.RowHeadersWidth = 51;
             dgvM12.Size = new Size(520, 688);
@@ -144,7 +144,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(49, 228);
+            label4.Location = new Point(12, 221);
             label4.Name = "label4";
             label4.Size = new Size(224, 28);
             label4.TabIndex = 26;
@@ -154,7 +154,7 @@
             // 
             cmbM12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbM12.FormattingEnabled = true;
-            cmbM12.Location = new Point(49, 259);
+            cmbM12.Location = new Point(12, 252);
             cmbM12.Name = "cmbM12";
             cmbM12.Size = new Size(224, 36);
             cmbM12.TabIndex = 25;
@@ -165,7 +165,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(925, 930);
+            ClientSize = new Size(845, 930);
             Controls.Add(label4);
             Controls.Add(cmbM12);
             Controls.Add(dgvM12);
