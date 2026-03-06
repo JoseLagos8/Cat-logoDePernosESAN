@@ -38,16 +38,19 @@
             largoperno = new DataGridViewTextBoxColumn();
             diametropulgada = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvM16).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(-7, -6);
+            pictureBox1.Location = new Point(-36, -4);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(737, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 21;
             pictureBox1.TabStop = false;
@@ -58,9 +61,9 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(310, 50);
+            label1.Location = new Point(271, 38);
             label1.Name = "label1";
-            label1.Size = new Size(344, 114);
+            label1.Size = new Size(270, 90);
             label1.TabIndex = 22;
             label1.Text = "M16\r\n en milimetros y pulgada\r\n\r\n";
             // 
@@ -85,10 +88,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM16.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM16.Location = new Point(110, 220);
+            dgvM16.Location = new Point(96, 165);
+            dgvM16.Margin = new Padding(3, 2, 3, 2);
             dgvM16.Name = "dgvM16";
             dgvM16.RowHeadersWidth = 51;
-            dgvM16.Size = new Size(585, 612);
+            dgvM16.Size = new Size(512, 459);
             dgvM16.TabIndex = 23;
             // 
             // milimetro
@@ -115,30 +119,45 @@
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 24;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox2.Image = Properties.Resources.MER_Chillán1;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(189, 109);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 25;
+            pictureBox2.TabStop = false;
+            // 
             // m16
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 835);
+            ClientSize = new Size(700, 626);
             Controls.Add(btnVolver);
+            Controls.Add(pictureBox2);
             Controls.Add(dgvM16);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "m16";
             Text = "Pernos M16 (5/8\")";
             Load += m16_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvM16).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,5 +171,6 @@
         private DataGridViewTextBoxColumn largoperno;
         private DataGridViewTextBoxColumn diametropulgada;
         private Button btnVolver;
+        private PictureBox pictureBox2;
     }
 }

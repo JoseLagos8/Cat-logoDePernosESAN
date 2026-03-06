@@ -41,17 +41,20 @@
             pictureBox2 = new PictureBox();
             label4 = new Label();
             cmbM10 = new ComboBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvM10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 12);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 3;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -63,9 +66,9 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(292, 85);
+            label1.Location = new Point(256, 64);
             label1.Name = "label1";
-            label1.Size = new Size(489, 46);
+            label1.Size = new Size(394, 37);
             label1.TabIndex = 4;
             label1.Text = "M10 en milimetros y pulgada";
             // 
@@ -90,10 +93,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM10.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM10.Location = new Point(267, 212);
+            dgvM10.Location = new Point(234, 159);
+            dgvM10.Margin = new Padding(3, 2, 3, 2);
             dgvM10.Name = "dgvM10";
             dgvM10.RowHeadersWidth = 51;
-            dgvM10.Size = new Size(500, 689);
+            dgvM10.Size = new Size(438, 517);
             dgvM10.TabIndex = 6;
             // 
             // Milimetro
@@ -122,10 +126,12 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.FromArgb(9, 38, 118);
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(-1, 2);
+            pictureBox1.Location = new Point(-29, 2);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(741, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -133,9 +139,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._1000021195;
-            pictureBox2.Location = new Point(536, 2);
+            pictureBox2.Location = new Point(469, 2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(642, 204);
+            pictureBox2.Size = new Size(562, 153);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 19;
             pictureBox2.TabStop = false;
@@ -144,9 +151,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 249);
+            label4.Location = new Point(10, 187);
             label4.Name = "label4";
-            label4.Size = new Size(224, 28);
+            label4.Size = new Size(180, 21);
             label4.TabIndex = 24;
             label4.Text = "Medidas de los pernos";
             // 
@@ -154,27 +161,41 @@
             // 
             cmbM10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbM10.FormattingEnabled = true;
-            cmbM10.Location = new Point(12, 280);
+            cmbM10.Location = new Point(10, 210);
+            cmbM10.Margin = new Padding(3, 2, 3, 2);
             cmbM10.Name = "cmbM10";
-            cmbM10.Size = new Size(224, 36);
+            cmbM10.Size = new Size(196, 29);
             cmbM10.TabIndex = 23;
             cmbM10.SelectedIndexChanged += cmbM10_SelectedIndexChanged;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox3.Image = Properties.Resources.MER_Chillán1;
+            pictureBox3.Location = new Point(12, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(197, 108);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 25;
+            pictureBox3.TabStop = false;
+            // 
             // m10
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(809, 950);
+            ClientSize = new Size(708, 712);
+            Controls.Add(btnVolver);
+            Controls.Add(pictureBox3);
             Controls.Add(label4);
             Controls.Add(cmbM10);
             Controls.Add(dgvM10);
             Controls.Add(label1);
-            Controls.Add(btnVolver);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "m10";
             StartPosition = FormStartPosition.CenterScreen;
@@ -183,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvM10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +220,6 @@
         private DataGridViewTextBoxColumn Milimetro;
         private DataGridViewTextBoxColumn Largo10;
         private DataGridViewTextBoxColumn DiametroEnPulgadas;
+        private PictureBox pictureBox3;
     }
 }

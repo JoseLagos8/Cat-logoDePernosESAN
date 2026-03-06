@@ -38,16 +38,19 @@
             largo = new DataGridViewTextBoxColumn();
             diametropulgadas = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernosMGeneral).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(-4, -7);
+            pictureBox1.Location = new Point(-26, -5);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(706, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -58,9 +61,9 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(301, 69);
+            label1.Location = new Point(263, 52);
             label1.Name = "label1";
-            label1.Size = new Size(359, 46);
+            label1.Size = new Size(289, 37);
             label1.TabIndex = 19;
             label1.Text = "Pernos en milimetros";
             // 
@@ -84,10 +87,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvPernosMGeneral.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvPernosMGeneral.Location = new Point(105, 226);
+            dgvPernosMGeneral.Location = new Point(92, 170);
+            dgvPernosMGeneral.Margin = new Padding(3, 2, 3, 2);
             dgvPernosMGeneral.Name = "dgvPernosMGeneral";
             dgvPernosMGeneral.RowHeadersWidth = 51;
-            dgvPernosMGeneral.Size = new Size(555, 601);
+            dgvPernosMGeneral.Size = new Size(486, 451);
             dgvPernosMGeneral.TabIndex = 20;
             // 
             // milimetrico
@@ -114,30 +118,45 @@
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 21;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox2.Image = Properties.Resources.MER_Chillán1;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(189, 109);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 22;
+            pictureBox2.TabStop = false;
+            // 
             // PernosMilimetricos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(773, 839);
+            ClientSize = new Size(676, 629);
             Controls.Add(btnVolver);
+            Controls.Add(pictureBox2);
             Controls.Add(dgvPernosMGeneral);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PernosMilimetricos";
             Text = "Pernos de Milimetricos a Pulgadas";
             Load += PernosMilimetricos_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernosMGeneral).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +170,6 @@
         private DataGridViewTextBoxColumn largo;
         private DataGridViewTextBoxColumn diametropulgadas;
         private Button btnVolver;
+        private PictureBox pictureBox2;
     }
 }

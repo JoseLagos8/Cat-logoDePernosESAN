@@ -37,16 +37,19 @@
             btnVolver = new Button();
             cmbPernoG = new ComboBox();
             dgvPernoG = new DataGridView();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoG).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(0, -4);
+            pictureBox1.Location = new Point(-37, -6);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(750, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -57,9 +60,9 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(359, 82);
+            label1.Location = new Point(314, 62);
             label1.Name = "label1";
-            label1.Size = new Size(321, 46);
+            label1.Size = new Size(255, 37);
             label1.TabIndex = 19;
             label1.Text = "PERNOS GRANDES";
             // 
@@ -67,18 +70,19 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(40, 230);
+            label4.Location = new Point(35, 172);
             label4.Name = "label4";
-            label4.Size = new Size(224, 28);
+            label4.Size = new Size(180, 21);
             label4.TabIndex = 26;
             label4.Text = "Medidas de los pernos";
             // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 27;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -89,10 +93,11 @@
             cmbPernoG.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPernoG.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbPernoG.FormattingEnabled = true;
-            cmbPernoG.Location = new Point(40, 261);
+            cmbPernoG.Location = new Point(35, 196);
+            cmbPernoG.Margin = new Padding(3, 2, 3, 2);
             cmbPernoG.Name = "cmbPernoG";
             cmbPernoG.RightToLeft = RightToLeft.No;
-            cmbPernoG.Size = new Size(224, 36);
+            cmbPernoG.Size = new Size(196, 29);
             cmbPernoG.TabIndex = 28;
             cmbPernoG.SelectedIndexChanged += cmbPernoG_SelectedIndexChanged_1;
             // 
@@ -116,31 +121,46 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvPernoG.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvPernoG.Location = new Point(310, 230);
+            dgvPernoG.Location = new Point(271, 172);
+            dgvPernoG.Margin = new Padding(3, 2, 3, 2);
             dgvPernoG.Name = "dgvPernoG";
             dgvPernoG.RightToLeft = RightToLeft.No;
             dgvPernoG.RowHeadersWidth = 51;
-            dgvPernoG.Size = new Size(459, 259);
+            dgvPernoG.Size = new Size(402, 194);
             dgvPernoG.TabIndex = 29;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox2.Image = Properties.Resources.MER_Chillán1;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(189, 109);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 30;
+            pictureBox2.TabStop = false;
             // 
             // PernosGrandes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 510);
+            ClientSize = new Size(700, 382);
+            Controls.Add(btnVolver);
+            Controls.Add(pictureBox2);
             Controls.Add(dgvPernoG);
             Controls.Add(cmbPernoG);
-            Controls.Add(btnVolver);
             Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PernosGrandes";
             Text = "Pernos Grandes con Hilo Fino y Corriente";
             Load += PernosGrandes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoG).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -153,5 +173,6 @@
         private Button btnVolver;
         private ComboBox cmbPernoG;
         private DataGridView dgvPernoG;
+        private PictureBox pictureBox2;
     }
 }

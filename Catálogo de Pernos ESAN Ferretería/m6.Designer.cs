@@ -39,9 +39,11 @@
             diametropulgada = new DataGridViewTextBoxColumn();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvM6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,18 +52,19 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(320, 88);
+            label1.Location = new Point(280, 66);
             label1.Name = "label1";
-            label1.Size = new Size(387, 38);
+            label1.Size = new Size(304, 30);
             label1.TabIndex = 2;
             label1.Text = "M6 en milimetros y pulgada\r\n";
             // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 5;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -88,10 +91,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvM6.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvM6.Location = new Point(122, 207);
+            dgvM6.Location = new Point(107, 155);
+            dgvM6.Margin = new Padding(3, 2, 3, 2);
             dgvM6.Name = "dgvM6";
             dgvM6.RowHeadersWidth = 51;
-            dgvM6.Size = new Size(585, 612);
+            dgvM6.Size = new Size(512, 459);
             dgvM6.TabIndex = 6;
             // 
             // milimetro
@@ -118,9 +122,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(0, -3);
+            pictureBox1.Location = new Point(-17, -2);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(681, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
@@ -128,26 +133,40 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._1000021195;
-            pictureBox2.Location = new Point(112, -3);
+            pictureBox2.Location = new Point(98, -2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(885, 204);
+            pictureBox2.Size = new Size(583, 153);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox3.Image = Properties.Resources.MER_Chillán1;
+            pictureBox3.Location = new Point(12, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(189, 109);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 23;
+            pictureBox3.TabStop = false;
+            // 
             // m6
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(772, 841);
-            Controls.Add(dgvM6);
+            ClientSize = new Size(676, 631);
             Controls.Add(btnVolver);
+            Controls.Add(pictureBox3);
+            Controls.Add(dgvM6);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "m6";
             Text = "Pernos M6 (1/4\")";
@@ -155,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvM6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -168,5 +188,6 @@
         private DataGridViewTextBoxColumn diametropulgada;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

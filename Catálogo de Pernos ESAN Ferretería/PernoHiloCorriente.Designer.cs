@@ -38,16 +38,19 @@
             dgvPernoHC = new DataGridView();
             btnVolver = new Button();
             LBResultados = new ListBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoHC).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._1000021195;
-            pictureBox1.Location = new Point(-2, 1);
+            pictureBox1.Location = new Point(-36, 1);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(885, 204);
+            pictureBox1.Size = new Size(744, 153);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -58,9 +61,9 @@
             label1.BackColor = Color.FromArgb(8, 33, 131);
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(327, 79);
+            label1.Location = new Point(286, 59);
             label1.Name = "label1";
-            label1.Size = new Size(416, 46);
+            label1.Size = new Size(334, 37);
             label1.TabIndex = 20;
             label1.Text = "Perno con Hilo Corriente";
             // 
@@ -68,9 +71,10 @@
             // 
             cmbPernoHC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbPernoHC.FormattingEnabled = true;
-            cmbPernoHC.Location = new Point(22, 257);
+            cmbPernoHC.Location = new Point(19, 193);
+            cmbPernoHC.Margin = new Padding(3, 2, 3, 2);
             cmbPernoHC.Name = "cmbPernoHC";
-            cmbPernoHC.Size = new Size(224, 33);
+            cmbPernoHC.Size = new Size(196, 27);
             cmbPernoHC.TabIndex = 21;
             cmbPernoHC.SelectedIndexChanged += cmbPernoHC_SelectedIndexChanged;
             cmbPernoHC.TextChanged += cmbPernoHC_TextChanged;
@@ -79,9 +83,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(22, 226);
+            label2.Location = new Point(19, 170);
             label2.Name = "label2";
-            label2.Size = new Size(224, 28);
+            label2.Size = new Size(180, 21);
             label2.TabIndex = 22;
             label2.Text = "Medidas de los pernos";
             // 
@@ -104,18 +108,20 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvPernoHC.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvPernoHC.Location = new Point(292, 226);
+            dgvPernoHC.Location = new Point(256, 170);
+            dgvPernoHC.Margin = new Padding(3, 2, 3, 2);
             dgvPernoHC.Name = "dgvPernoHC";
             dgvPernoHC.RowHeadersWidth = 51;
-            dgvPernoHC.Size = new Size(433, 507);
+            dgvPernoHC.Size = new Size(379, 380);
             dgvPernoHC.TabIndex = 23;
             // 
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVolver.Location = new Point(12, 12);
+            btnVolver.Location = new Point(10, 9);
+            btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(94, 38);
+            btnVolver.Size = new Size(82, 28);
             btnVolver.TabIndex = 27;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = true;
@@ -125,32 +131,47 @@
             // 
             LBResultados.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBResultados.FormattingEnabled = true;
-            LBResultados.ItemHeight = 23;
-            LBResultados.Location = new Point(22, 296);
+            LBResultados.ItemHeight = 19;
+            LBResultados.Location = new Point(19, 222);
+            LBResultados.Margin = new Padding(3, 2, 3, 2);
             LBResultados.Name = "LBResultados";
-            LBResultados.Size = new Size(224, 119);
+            LBResultados.Size = new Size(196, 80);
             LBResultados.TabIndex = 28;
             LBResultados.Click += LBResultados_Click;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(9, 38, 118);
+            pictureBox3.Image = Properties.Resources.MER_Chillán1;
+            pictureBox3.Location = new Point(12, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(189, 109);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 30;
+            pictureBox3.TabStop = false;
+            // 
             // PernoHiloCorriente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(801, 801);
-            Controls.Add(LBResultados);
+            ClientSize = new Size(701, 601);
             Controls.Add(btnVolver);
+            Controls.Add(pictureBox3);
+            Controls.Add(LBResultados);
             Controls.Add(dgvPernoHC);
             Controls.Add(label2);
             Controls.Add(cmbPernoHC);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PernoHiloCorriente";
             Text = "Pernos de Hilo Corriente";
             Load += PernoHiloCorriente_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPernoHC).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,5 +185,6 @@
         private DataGridView dgvPernoHC;
         private Button btnVolver;
         private ListBox LBResultados;
+        private PictureBox pictureBox3;
     }
 }
